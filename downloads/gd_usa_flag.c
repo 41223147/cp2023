@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <gd.h>        
 
 void draw_usa_flag(gdImagePtr img);
 void draw_star(gdImagePtr img, int x, int y, int size, int color, double rotation_angle);
