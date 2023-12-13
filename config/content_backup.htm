@@ -261,6 +261,7 @@
 </tr>
 </tbody>
 </table>
+<p>結果如下</p>
 <p><img alt="" height="384" src="/images/roc_flag_in_gd.png" width="577"/></p>
 </div>
 <h4>美國國旗</h4>
@@ -286,6 +287,7 @@
 <p>void draw_star(gdImagePtr img, int x, int y, int size, int color, double rotation_angle) {<br/> gdPoint points[10];</p>
 <p>for (int i = 0; i &lt; 10; i++) {<br/> double angle = M_PI / 2 + i * 2 * M_PI / 10 + rotation_angle;<br/> int radius = (i % 2 == 0) ? size : size / 2;<br/> points[i].x = x + radius * cos(angle);<br/> points[i].y = y + radius * sin(angle);<br/> }</p>
 <p>// 用指定的颜色填充星星<br/> gdImageFilledPolygon(img, points, 10, color);<br/>}</p>
+<p>結果如下</p>
 <p><img alt="" height="314" src="/images/usa_flag.png" width="597"/></p>
 <h1>w5</h1>
 <pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
