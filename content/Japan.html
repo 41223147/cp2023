@@ -2,7 +2,7 @@
         <head>
         <title>cmsite</title>
         <meta charset="utf-8">
-<meta property="head" content="H1">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -142,10 +142,70 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w12 << <a href='w12.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython<br /><h1>w13</h1>
-<p>計算機程式這門課上到現在有一段時間了，一開始什麼都聽不懂，老師講課的速度也很快，而我自己是反應比較慢的人，需要花多一點的時間去理解老師講的內容，畢竟是第一次接觸到C語言，我自己也對這方面不太拿手，經過多次觀看老師的影片及詢問同學的結果讓我對C語言稍微懂了一些。</p>
-<p>對於書寫程式這方面我必須多花一些時間去了解，才能在程式設計這方面進一步的成長。</p>
-<br />w12 << <a href='w12.html'>Previous</a> <a href='Brython.html'>Next</a> >> Brython</div>
+    <div id="tipue_search_content">USA << <a href='USA.html'>Previous</a> <a href='UK.html'>Next</a> >> UK<br /><h1>Japan</h1>
+<p>程式如下</p>
+<p></p>
+<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+
+void draw_japan_flag(gdImagePtr img);
+void draw_red_sun(gdImagePtr img, int x, int y, int size, int color);
+
+int main() {
+int originalWidth = 1200;
+int originalHeight = (int)(originalWidth * 2.0 / 3.0);
+gdImagePtr img = gdImageCreateTrueColor(originalWidth, originalHeight);
+gdImageAlphaBlending(img, 0);
+
+draw_japan_flag(img);
+
+// 新的宽度和高度以适应 "images" 文件夹
+int newWidth = 600;
+int newHeight = (int)(newWidth * 2.0 / 3.0);
+
+// 创建新图像并进行缩放
+gdImagePtr resizedImage = gdImageCreateTrueColor(newWidth, newHeight);
+gdImageAlphaBlending(resizedImage, 0);
+gdImageCopyResampled(resizedImage, img, 0, 0, 0, 0, newWidth, newHeight, originalWidth, originalHeight);
+
+FILE *outputFile = fopen("./../images/japan_flag.png", "wb");
+if (outputFile == NULL) {
+fprintf(stderr, "Error opening the output file.\n");
+return 1;
+}
+gdImagePng(resizedImage, outputFile);
+fclose(outputFile);
+gdImageDestroy(img);
+gdImageDestroy(resizedImage);
+
+return 0;
+}
+
+void draw_japan_flag(gdImagePtr img) {
+int width = gdImageSX(img);
+int height = gdImageSY(img);
+
+// 创建一个白色背景
+int white = gdImageColorAllocate(img, 255, 255, 255);
+gdImageFilledRectangle(img, 0, 0, width - 1, height - 1, white);
+
+// 绘制红色圆圈（太阳）
+int red = gdImageColorAllocate(img, 255, 0, 0);
+int center_x = width / 2;
+int center_y = height / 2;
+int radius = (int)((width * 2) / 3);
+draw_red_sun(img, center_x, center_y, radius, red);
+}
+
+void draw_red_sun(gdImagePtr img, int x, int y, int size, int color) {
+// 減小 size 的值,例如將他的值減半
+size = size / 2;
+gdImageArc(img, x, y, size, size, 0, 360, color);
+gdImageFillToBorder(img, x, y, color, color);
+}</pre>
+<p><img alt="" height="303" src="data:image/png;base64,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" width="455"/></p>
+<br />USA << <a href='USA.html'>Previous</a> <a href='UK.html'>Next</a> >> UK</div>
         
     <!-- footer -->
       <div class="container">
