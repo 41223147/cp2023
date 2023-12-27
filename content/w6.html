@@ -131,7 +131,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='w13.html'>w13</a><li><a href='w12.html'>w12</a><li class='has-children'><a href='w6.html'>w6</a><ul class='dropdown'><li><a href='日本國旗.html'>日本國旗</a></li></ul><li><a href='w5.html'>w5</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li><a href='w5.html'>w5</a><li class='has-children'><a href='w6.html'>w6</a><ul class='dropdown'><li><a href='日本國旗.html'>日本國旗</a></li></ul><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -142,7 +142,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w12 << <a href='w12.html'>Previous</a> <a href='日本國旗.html'>Next</a> >> 日本國旗<br /><h1>w6</h1>
+    <div id="tipue_search_content">w5 << <a href='w5.html'>Previous</a> <a href='日本國旗.html'>Next</a> >> 日本國旗<br /><h1>w6</h1>
 <p><span>台灣國旗</span></p>
 <p><span><span><span><span><span><span><span><span><span><span><a href="https://mde.tw/cpnote/downloads/roc_flag_in_gd.c"><span><span><span><span><span><span><span><span><span><span>roc_flag_in_gd.c</span></span></span></span></span></span></span></span></span></span></a><span><span><span><span><span><span><span><span><span><span> 原始碼如下</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></p>
 <div class="syntaxhighlighter cpp" id="highlighter_198454">
@@ -285,51 +285,51 @@ img.add_border {
 <div class="line number8 index7 alt1"><code class="cpp preprocessor">#include &lt;gd.h&gt;</code></div>
 <div class="line number9 index8 alt2"><code class="cpp preprocessor">#include &lt;math.h&gt;</code></div>
 <div class="line number10 index9 alt1"> </div>
-<div class="line number11 index10 alt2"><code class="cpp keyword bold">void</code> <code class="cpp plain">draw_roc_flag(gdImagePtr img);</code></div>
-<div class="line number12 index11 alt1"><code class="cpp keyword bold">void</code> <code class="cpp plain">draw_white_sun(gdImagePtr img, </code><code class="cpp color1 bold">int</code> <code class="cpp plain">x, </code><code class="cpp color1 bold">int</code> <code class="cpp plain">y, </code><code class="cpp color1 bold">int</code> <code class="cpp plain">size, </code><code class="cpp color1 bold">int</code> <code class="cpp plain">color);</code></div>
+<div class="line number11 index10 alt2"><code class="cpp keyword bold">void</code><span> </span><code class="cpp plain">draw_roc_flag(gdImagePtr img);</code></div>
+<div class="line number12 index11 alt1"><code class="cpp keyword bold">void</code><span> </span><code class="cpp plain">draw_white_sun(gdImagePtr img,<span> </span></code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">x,<span> </span></code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">y,<span> </span></code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">size,<span> </span></code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">color);</code></div>
 <div class="line number13 index12 alt2"> </div>
-<div class="line number14 index13 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">main() {</code></div>
+<div class="line number14 index13 alt1"><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">main() {</code></div>
 <div class="line number15 index14 alt2"><code class="cpp spaces">    </code><code class="cpp comments">// width 3: height 2</code></div>
-<div class="line number16 index15 alt1"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code> <code class="cpp plain">width = 1200;</code></div>
+<div class="line number16 index15 alt1"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">width = 1200;</code></div>
 <div class="line number17 index16 alt2"><code class="cpp spaces">    </code><code class="cpp comments">// 國旗長寬比為 3:2</code></div>
-<div class="line number18 index17 alt1"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code> <code class="cpp plain">height = (</code><code class="cpp color1 bold">int</code><code class="cpp plain">)(width*2.0 / 3.0);</code></div>
+<div class="line number18 index17 alt1"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">height = (</code><code class="cpp color1 bold">int</code><code class="cpp plain">)(width*2.0 / 3.0);</code></div>
 <div class="line number19 index18 alt2"> </div>
 <div class="line number20 index19 alt1"><code class="cpp spaces">    </code><code class="cpp plain">gdImagePtr img = gdImageCreateTrueColor(width, height);</code></div>
 <div class="line number21 index20 alt2"><code class="cpp spaces">    </code><code class="cpp plain">gdImageAlphaBlending(img, 0);</code></div>
 <div class="line number22 index21 alt1"> </div>
 <div class="line number23 index22 alt2"><code class="cpp spaces">    </code><code class="cpp plain">draw_roc_flag(img);</code></div>
 <div class="line number24 index23 alt1"> </div>
-<div class="line number25 index24 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">FILE</code> <code class="cpp plain">*outputFile = </code><code class="cpp functions bold">fopen</code><code class="cpp plain">(</code><code class="cpp string">"./../images/roc_flag_in_gd.png"</code><code class="cpp plain">, </code><code class="cpp string">"wb"</code><code class="cpp plain">);</code></div>
-<div class="line number26 index25 alt1"><code class="cpp spaces">    </code><code class="cpp keyword bold">if</code> <code class="cpp plain">(outputFile == NULL) {</code></div>
-<div class="line number27 index26 alt2"><code class="cpp spaces">        </code><code class="cpp functions bold">fprintf</code><code class="cpp plain">(stderr, </code><code class="cpp string">"Error opening the output file.\n"</code><code class="cpp plain">);</code></div>
-<div class="line number28 index27 alt1"><code class="cpp spaces">        </code><code class="cpp keyword bold">return</code> <code class="cpp plain">1;</code></div>
+<div class="line number25 index24 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">FILE</code><span> </span><code class="cpp plain">*outputFile =<span> </span></code><code class="cpp functions bold">fopen</code><code class="cpp plain">(</code><code class="cpp string">"./../images/roc_flag_in_gd.png"</code><code class="cpp plain">,<span> </span></code><code class="cpp string">"wb"</code><code class="cpp plain">);</code></div>
+<div class="line number26 index25 alt1"><code class="cpp spaces">    </code><code class="cpp keyword bold">if</code><span> </span><code class="cpp plain">(outputFile == NULL) {</code></div>
+<div class="line number27 index26 alt2"><code class="cpp spaces">        </code><code class="cpp functions bold">fprintf</code><code class="cpp plain">(stderr,<span> </span></code><code class="cpp string">"Error opening the output file.\n"</code><code class="cpp plain">);</code></div>
+<div class="line number28 index27 alt1"><code class="cpp spaces">        </code><code class="cpp keyword bold">return</code><span> </span><code class="cpp plain">1;</code></div>
 <div class="line number29 index28 alt2"><code class="cpp spaces">    </code><code class="cpp plain">}</code></div>
 <div class="line number30 index29 alt1"><code class="cpp spaces">    </code><code class="cpp plain">gdImagePngEx(img, outputFile, 9);</code></div>
 <div class="line number31 index30 alt2"><code class="cpp spaces">    </code><code class="cpp functions bold">fclose</code><code class="cpp plain">(outputFile);</code></div>
 <div class="line number32 index31 alt1"><code class="cpp spaces">    </code><code class="cpp plain">gdImageDestroy(img);</code></div>
-<div class="line number33 index32 alt2"><code class="cpp spaces">    </code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
+<div class="line number33 index32 alt2"><code class="cpp spaces">    </code><code class="cpp keyword bold">return</code><span> </span><code class="cpp plain">0;</code></div>
 <div class="line number34 index33 alt1"><code class="cpp plain">}</code></div>
 <div class="line number35 index34 alt2"> </div>
-<div class="line number36 index35 alt1"><code class="cpp keyword bold">void</code> <code class="cpp plain">draw_roc_flag(gdImagePtr img) {</code></div>
-<div class="line number37 index36 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code> <code class="cpp plain">width = gdImageSX(img);</code></div>
-<div class="line number38 index37 alt1"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code> <code class="cpp plain">height = gdImageSY(img);</code></div>
-<div class="line number39 index38 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code> <code class="cpp plain">red, white, blue;</code></div>
+<div class="line number36 index35 alt1"><code class="cpp keyword bold">void</code><span> </span><code class="cpp plain">draw_roc_flag(gdImagePtr img) {</code></div>
+<div class="line number37 index36 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">width = gdImageSX(img);</code></div>
+<div class="line number38 index37 alt1"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">height = gdImageSY(img);</code></div>
+<div class="line number39 index38 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">red, white, blue;</code></div>
 <div class="line number40 index39 alt1"><code class="cpp spaces">    </code><code class="cpp comments">// 白日位於青天面積正中央, 因此中心點座標為長寬各 1/4 處</code></div>
-<div class="line number41 index40 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code> <code class="cpp plain">center_x = (</code><code class="cpp color1 bold">int</code><code class="cpp plain">)(width/4);</code></div>
-<div class="line number42 index41 alt1"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code> <code class="cpp plain">center_y = (</code><code class="cpp color1 bold">int</code><code class="cpp plain">)(height/4);</code></div>
+<div class="line number41 index40 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">center_x = (</code><code class="cpp color1 bold">int</code><code class="cpp plain">)(width/4);</code></div>
+<div class="line number42 index41 alt1"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">center_y = (</code><code class="cpp color1 bold">int</code><code class="cpp plain">)(height/4);</code></div>
 <div class="line number43 index42 alt2"><code class="cpp spaces">    </code><code class="cpp comments">// gdImageFilledEllipse 需以長寬方向的 diameter 作圖</code></div>
 <div class="line number44 index43 alt1"><code class="cpp spaces">    </code><code class="cpp comments">// 由於中央白日圓形的半徑為青天寬度的 1/8</code></div>
 <div class="line number45 index44 alt2"><code class="cpp spaces">    </code><code class="cpp comments">// 因此中央白日圓形的直徑為青天寬度的 1/4, 也就是國旗寬度的 1/8</code></div>
 <div class="line number46 index45 alt1"><code class="cpp spaces">    </code><code class="cpp comments">// 而且白日十二道光芒的外圍圓形其半徑也是國旗寬度的1/8</code></div>
-<div class="line number47 index46 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code> <code class="cpp plain">sun_radius = (</code><code class="cpp color1 bold">int</code><code class="cpp plain">)(width/8);</code></div>
+<div class="line number47 index46 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">sun_radius = (</code><code class="cpp color1 bold">int</code><code class="cpp plain">)(width/8);</code></div>
 <div class="line number48 index47 alt1"><code class="cpp spaces">    </code><code class="cpp comments">// 中央白日圓形的直徑等於十二道光芒外圍圓形的半徑</code></div>
-<div class="line number49 index48 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code> <code class="cpp plain">white_circle_dia = sun_radius;</code></div>
+<div class="line number49 index48 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">white_circle_dia = sun_radius;</code></div>
 <div class="line number50 index49 alt1"><code class="cpp spaces">    </code><code class="cpp comments">// 中央藍色圓形半徑為中央白日的 1又 2/15</code></div>
-<div class="line number51 index50 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code> <code class="cpp plain">blue_circle_dia = white_circle_dia +  white_circle_dia*2/15;</code></div>
+<div class="line number51 index50 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">blue_circle_dia = white_circle_dia +  white_circle_dia*2/15;</code></div>
 <div class="line number52 index51 alt1"><code class="cpp spaces">    </code><code class="cpp comments">// 根據 https://www.moi.gov.tw/cp.aspx?n=10621 訂定國旗三種顏色值</code></div>
-<div class="line number53 index52 alt2"><code class="cpp spaces">    </code><code class="cpp plain">red = gdImageColorAllocate(img, 255, 0, 0); </code><code class="cpp comments">// 紅色</code></div>
-<div class="line number54 index53 alt1"><code class="cpp spaces">    </code><code class="cpp plain">white = gdImageColorAllocate(img, 255, 255, 255); </code><code class="cpp comments">// 白色</code></div>
-<div class="line number55 index54 alt2"><code class="cpp spaces">    </code><code class="cpp plain">blue = gdImageColorAllocate(img, 0, 0, 149); </code><code class="cpp comments">// 藍色</code></div>
+<div class="line number53 index52 alt2"><code class="cpp spaces">    </code><code class="cpp plain">red = gdImageColorAllocate(img, 255, 0, 0);<span> </span></code><code class="cpp comments">// 紅色</code></div>
+<div class="line number54 index53 alt1"><code class="cpp spaces">    </code><code class="cpp plain">white = gdImageColorAllocate(img, 255, 255, 255);<span> </span></code><code class="cpp comments">// 白色</code></div>
+<div class="line number55 index54 alt2"><code class="cpp spaces">    </code><code class="cpp plain">blue = gdImageColorAllocate(img, 0, 0, 149);<span> </span></code><code class="cpp comments">// 藍色</code></div>
 <div class="line number56 index55 alt1"><code class="cpp spaces">    </code><code class="cpp comments">// 根據畫布大小塗上紅色長方形區域</code></div>
 <div class="line number57 index56 alt2"><code class="cpp spaces">    </code><code class="cpp plain">gdImageFilledRectangle(img, 0, 0, width, height, red);</code></div>
 <div class="line number58 index57 alt1"><code class="cpp spaces">    </code><code class="cpp comments">// 青天面積為整面國旗的 1/4, 也是採用長方形塗色</code></div>
@@ -342,14 +342,14 @@ img.add_border {
 <div class="line number65 index64 alt2"><code class="cpp spaces">  </code> </div>
 <div class="line number66 index65 alt1"><code class="cpp plain">}</code></div>
 <div class="line number67 index66 alt2"> </div>
-<div class="line number68 index67 alt1"><code class="cpp keyword bold">void</code> <code class="cpp plain">draw_white_sun(gdImagePtr img, </code><code class="cpp color1 bold">int</code> <code class="cpp plain">center_x, </code><code class="cpp color1 bold">int</code> <code class="cpp plain">center_y, </code><code class="cpp color1 bold">int</code> <code class="cpp plain">sun_radius, </code><code class="cpp color1 bold">int</code> <code class="cpp plain">color) {</code></div>
+<div class="line number68 index67 alt1"><code class="cpp keyword bold">void</code><span> </span><code class="cpp plain">draw_white_sun(gdImagePtr img,<span> </span></code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">center_x,<span> </span></code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">center_y,<span> </span></code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">sun_radius,<span> </span></code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">color) {</code></div>
 <div class="line number69 index68 alt2"><code class="cpp spaces">    </code><code class="cpp comments">// M_PI 大小定義於 math.h 標頭檔中, 因為三角函數中採用徑度為角度單位</code></div>
 <div class="line number70 index69 alt1"><code class="cpp spaces">    </code><code class="cpp comments">// 因此定義將角度轉為徑度的轉換變數為 deg, 角度值乘上 deg 就可轉為徑度</code></div>
-<div class="line number71 index70 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">float</code> <code class="cpp plain">deg = M_PI/180;</code></div>
+<div class="line number71 index70 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">float</code><span> </span><code class="cpp plain">deg = M_PI/180;</code></div>
 <div class="line number72 index71 alt1"><code class="cpp spaces">    </code><code class="cpp comments">// 根據十二道光芒的每一尖角的角度為 15 度, 求出其對應直角三角形的另一角度為 75 度</code></div>
 <div class="line number73 index72 alt2"><code class="cpp spaces">    </code><code class="cpp comments">// 求出十二道光芒中任一菱形的 small radius, 也就是菱形的另一個對應小圓的半徑大小</code></div>
-<div class="line number74 index73 alt1"><code class="cpp spaces">    </code><code class="cpp color1 bold">float</code> <code class="cpp plain">sr = sun_radius/</code><code class="cpp functions bold">tan</code><code class="cpp plain">(75*deg);</code></div>
-<div class="line number75 index74 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code> <code class="cpp plain">ax, ay, bx, by, dx, dy, ex, ey;</code></div>
+<div class="line number74 index73 alt1"><code class="cpp spaces">    </code><code class="cpp color1 bold">float</code><span> </span><code class="cpp plain">sr = sun_radius/</code><code class="cpp functions bold">tan</code><code class="cpp plain">(75*deg);</code></div>
+<div class="line number75 index74 alt2"><code class="cpp spaces">    </code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">ax, ay, bx, by, dx, dy, ex, ey;</code></div>
 <div class="line number76 index75 alt1"><code class="cpp spaces">    </code><code class="cpp plain">gdPoint points[4];</code></div>
 <div class="line number77 index76 alt2"><code class="cpp spaces">    </code><code class="cpp comments">/* 在塗上十二道光芒中的單一菱形區域之前, 先以座標點畫線測試是否正確</code></div>
 <div class="line number78 index77 alt1"><code class="cpp spaces">    </code><code class="cpp comments">ax = center_x;</code></div>
@@ -378,7 +378,7 @@ img.add_border {
 <div class="line number101 index100 alt2"><code class="cpp spaces">    </code><code class="cpp plain">dx = center_x + sun_radius*</code><code class="cpp functions bold">tan</code><code class="cpp plain">(15*deg);</code></div>
 <div class="line number102 index101 alt1"><code class="cpp spaces">    </code><code class="cpp plain">dy = center_y;</code></div>
 <div class="line number103 index102 alt2"><code class="cpp spaces">    </code><code class="cpp comments">// 確定單一菱形區域的塗色正確後, 利用迴圈每次轉動 30 度, 總共轉六次即可塗上十二道光芒區域</code></div>
-<div class="line number104 index103 alt1"><code class="cpp spaces">    </code><code class="cpp keyword bold">for</code> <code class="cpp plain">(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">i=1;i&lt;=6;i++){</code></div>
+<div class="line number104 index103 alt1"><code class="cpp spaces">    </code><code class="cpp keyword bold">for</code><span> </span><code class="cpp plain">(</code><code class="cpp color1 bold">int</code><span> </span><code class="cpp plain">i=1;i&lt;=6;i++){</code></div>
 <div class="line number105 index104 alt2"><code class="cpp spaces">    </code><code class="cpp comments">// A</code></div>
 <div class="line number106 index105 alt1"><code class="cpp spaces">    </code><code class="cpp plain">points[0].x = ax+sun_radius*</code><code class="cpp functions bold">sin</code><code class="cpp plain">(30*deg*i);</code></div>
 <div class="line number107 index106 alt2"><code class="cpp spaces">    </code><code class="cpp plain">points[0].y = ay+sun_radius-sun_radius*</code><code class="cpp functions bold">cos</code><code class="cpp plain">(30*deg*i);</code></div>
@@ -498,7 +498,7 @@ gdImageFilledPolygon(img, points, 10, color);
 <p></p>
 <p>結果如下</p>
 <p><img alt="" height="269" src="./../images/usa_flag.png" width="511"/></p>
-<br />w12 << <a href='w12.html'>Previous</a> <a href='日本國旗.html'>Next</a> >> 日本國旗</div>
+<br />w5 << <a href='w5.html'>Previous</a> <a href='日本國旗.html'>Next</a> >> 日本國旗</div>
         
     <!-- footer -->
       <div class="container">
