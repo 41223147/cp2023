@@ -617,6 +617,452 @@ void draw_uk_flag(gdImagePtr img) {
     gdImageFilledRectangle(img, 0, center_y + 1.5 * cross_arm_width, width, center_y - 1.5 * cross_arm_width, red);
 }</pre>
 <p><img alt="" height="250" src="data:image/png;base64,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" width="500"/></p>
+<h3>PROC</h3>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+
+void draw_chinese_flag(gdImagePtr img);
+
+int main() {
+    int width = 300; // 國旗寬度
+    int height = 200; // 國旗高度
+
+    gdImagePtr im = gdImageCreateTrueColor(width, height);
+    gdImageAlphaBlending(im, 0);
+
+    draw_chinese_flag(im);
+
+    FILE *outputFile = fopen("./../images/proc_flag.png", "wb");
+    if (outputFile == NULL) {
+        fprintf(stderr, "打开输出文件时出错。\n");
+        return 1;
+    }
+
+    gdImagePngEx(im, outputFile, 9);
+    fclose(outputFile);
+    gdImageDestroy(im);
+
+    return 0;
+}
+
+// 声明 draw_star 函数
+void draw_star(gdImagePtr img, int x, int y, int size, int color, double rotation_angle);
+
+void draw_chinese_flag(gdImagePtr img) {
+    int width = gdImageSX(img);
+    int height = gdImageSY(img);
+    int red, yellow;
+
+    // 國旗顏色
+    red = gdImageColorAllocate(img, 255, 0, 0); // 紅色背景
+    yellow = gdImageColorAllocate(img, 255, 255, 0); // 黃色星星
+
+    // 畫紅色背景
+    gdImageFilledRectangle(img, 0, 0, width, height, red);
+
+    // 設置星星的大小和位置
+    int star_size = (int)(0.28 * height);
+    int star_x = (int)(0.165 * width);
+    int star_y = (int)(0.265 * height);
+
+    // 畫大星星
+    draw_star(img, star_x, star_y, star_size, yellow, 11.0);
+
+    // 繪製小星星，位置根據實際國旗比例計算
+    double radius = 0.15 * height;
+    double angle = 360 / 7 * M_PI / 179.0;
+    double rotation = -M_PI / 7.5;
+    int cx = (int)(0.32 * width);
+    int cy = (int)(0.27 * height);
+
+    for (int i = -1; i &lt; 3; i++) {
+        int x = (int)(cx + radius * cos(i * angle + rotation));
+        int y = (int)(cy + radius * sin(i * angle + rotation));
+        draw_star(img, x, y, 19, yellow, M_PI / 5.0);
+    }
+}
+
+void draw_star(gdImagePtr img, int x, int y, int size, int color, double rotation_angle) {
+    gdPoint points[10];
+
+    // 计算星形的五个外点和五个内点
+    double outer_radius = size / 2;
+    double inner_radius = size / 6;
+    double angle = M_PI / 5.0;
+
+    for (int i = 0; i &lt; 10; i++) {
+        double radius = (i % 2 == 0) ? outer_radius : inner_radius;
+        double theta = rotation_angle + i * angle;
+        points[i].x = x + radius * cos(theta);
+        points[i].y = y + radius * sin(theta);
+    }
+
+    // 使用 gdImageFilledPolygon 绘制星形
+    gdImageFilledPolygon(img, points, 10, color);
+}</pre>
+<img alt="" height="299" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAADICAIAAADdvUsCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADZklEQVR42u3d3U5qQQyAUWp4/1euVxKjEMQ9TDuz14pX54cgmY92Q8TIC1Dpw0MAIgQRAiIEEQIiBBECIgQRAiIEEQIiBBECIgQR8oOf+0KEOkSEgAjbDkNDkn+5egiGZRkeCEQ4s7ow+rCOtlpKjUFEWEmBWEenDj0QYa/2jEEOLlLZ8/THUlnqENeE9lVEOPpA9z/Wph8mYX2B8fVlGHKAF2ZMRUxCySHCdheEFwseImT4GPScggjrF1Ed0j1CZxQRtrNfln4gmF+8RdEjS6+4itDQm/qd+oFglllH955+N8agCF0WVlKgddRD4EkEEZ7pVVBjEJOwbMnMB63q0DWhjc53x/oRZu9T2PCUm358Pw658VlvddzzwV3yZr1JuPOz+xInOxR4dtfxhz7lZxGlKsIOKTrlnHcd7RBD8wI9QXD3XLx9YqXzDSWTcGYeCsQkLBuJ8kOEZSnKD+toZTwKxCQsG4nywyQEtogwp/9HEOGpee6gV4R5ygOtQ0xCEKGl1JCkQ4RPD1yMuJGFsvQxMyLsdXfizx0uPQzz6wtmv1mfL87AV//9covoxRikySR89BEP2x9QBdLic0fj2d+uu7ZZOOm1juaBUZBLTRIfv80yEcb0W+iWpQ6Zd004pJ9XX7mxryLC8ZvYBqPD9KM+wjjxIb69ERqdPqaV/a8J8w395FJZ5jp3lZ0nYYy+teUOtAKpifCtv/Bk2kZnaWTtSRjL3vjADo1BKq8JN+AXmLHDNeE2KVpWGcrvrDchEeFy1YXRh3W01VJqDCLCSgrEOjp16IEIe7VnDDJknfJcfyhLHeKa0L6KCE+4PXgIsI4WTry49+ey5AAvzJiKWEclhwgBERqDnPhkeWEGTEIQISBCECEgQhAhIEIQISBCECEgQhAhIEIQISBCECEgQhAhIEIQISBCECEgQhAhIEIQISBCECEgQhAhIEIQISBCECEgQhAhIEIQISBCECEgQhAhIEIQISBCECEgQhAhIEIQISBCECEgQhAhIEIQISBCECEgQhAhIEIQISBCECGIEBAhiBAQIYgQECGIEBAhiBAQIYgQECGIEBAhiBAQIYgQECGIEBAhiBAQIYgQECGIEBAhiBAQIYgQECGIEBAhiBAQIYgQECGIEBAhiBAQIYgQECGIEPizT38edJkK4FajAAAAAElFTkSuQmCC" width="448"/>
+<h3>Korea</h3>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+
+#define WIDTH 900
+#define HEIGHT 600
+#define FILENAME "south_korea_flag.png"
+
+int main() {
+    gdImagePtr im;
+    FILE *pngout;
+    int white, black, red, blue;
+
+    im = gdImageCreate(WIDTH, HEIGHT);
+
+    white = gdImageColorAllocate(im, 255, 255, 255);
+    black = gdImageColorAllocate(im, 0, 0, 0);
+    red = gdImageColorAllocate(im, 205, 0, 0);
+    blue = gdImageColorAllocate(im, 0, 56, 168);
+
+    // Background (white)
+    gdImageFilledRectangle(im, 0, 0, WIDTH, HEIGHT , white);
+
+    // Blue Circle (Yin-Yang Symbol)
+    gdImageFilledArc(im, WIDTH / 2, HEIGHT / 2, WIDTH / 3, HEIGHT / 2, 210, 30, red, gdArc);
+
+    // Red Circle (Yin-Yang Symbol)
+    gdImageFilledArc(im, WIDTH / 2, HEIGHT / 2, WIDTH / 3, HEIGHT / 2, 30, 210, blue, gdArc);
+
+  int circleX = 385;    // 圓心的 X 座標
+  int circleY = 262.5;   // 圓心的 Y 座標
+  int circleRadius = 75;    
+
+  // 繪製圓形
+  gdImageFilledEllipse(im, circleX, circleY, circleRadius * 2, circleRadius * 2, red);
+
+  int circleX2 = 515;    // 圓心的 X 座標
+
+ int circleY2 = 337.5;
+
+  // 繪製圓形
+  gdImageFilledEllipse(im, circleX2, circleY2, circleRadius * 2, circleRadius * 2, blue);
+
+  {
+
+
+  // 起點和終點位置
+
+  int startX = 340;   
+  // 線的起點 X 座標
+
+  int startY = 90;  
+  // 線的起點 Y 座標
+
+  int endX = 200;    
+  // 線的終點 X 座標
+
+  int endY = 260;    
+  // 線的終點 Y 座標
+
+  int lineWidth = 23;  // 線的寬度
+
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX, startY, endX, endY, black);
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX -35, startY -10, endX -35, endY -10, black);
+
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX -70, startY -20, endX -70, endY -20, black);
+
+  int startX2 = 213;   
+  // 線的起點 X 座標
+
+  int startY2 = 270;  
+  // 線的起點 Y 座標
+
+  int endX2 = 133;    
+  // 線的終點 X 座標
+
+  int endY2 = 210;    
+  // 線的終點 Y 座標
+
+  int lineWidth2 = 25;  // 線的寬度
+
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX2 +3, startY2, endX2 +3, endY2, white);
+
+  gdImageSetThickness(im, lineWidth +10);
+gdImageLine(im, startX2 -17, startY2 +9 , endX2 -17, endY2 +9 , white);
+
+  gdImageSetThickness(im, lineWidth );
+gdImageLine(im, startX2 +115, startY2 -145, endX2 +115, endY2 -145, white);
+
+  gdImageSetThickness(im, lineWidth);
+gdImageLine(im, startX2 +120, startY2 -155, endX2 +120, endY2 -155, white);
+
+  gdImageSetThickness(im, lineWidth +12);
+gdImageLine(im, startX2 +145, startY2 -155, endX2 +145, endY2 -155, white);
+}
+  {
+    // 起點和終點位置
+
+  int startX = 330;   
+  // 線的起點 X 座標
+
+  int startY = 520;  
+  // 線的起點 Y 座標
+
+  int endX = 190;    
+  // 線的終點 X 座標
+
+  int endY = 350;    
+  // 線的終點 Y 座標
+
+  int lineWidth = 23;  // 線的寬度
+
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX, startY, endX, endY, black);
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX -35, startY +10, endX -35, endY +10, black);
+
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX -70, startY +20, endX -70, endY +20, black);
+
+  int startX2 = 213;   
+  // 線的起點 X 座標
+
+  int startY2 = 330;  
+  // 線的起點 Y 座標
+
+  int endX2 = 133;    
+  // 線的終點 X 座標
+
+  int endY2 = 390;    
+  // 線的終點 Y 座標
+
+  int lineWidth2 = 25;  // 線的寬度
+
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth +8);
+  gdImageLine(im, startX2 -11, startY2, endX2 -11, endY2, white);
+
+  gdImageSetThickness(im, lineWidth +10);
+gdImageLine(im, startX2 -30, startY2 -9 , endX2 -30, endY2 -9 , white);
+
+  gdImageSetThickness(im, lineWidth );
+gdImageLine(im, startX2 +100, startY2 +150, endX2 +100, endY2 +150, white);
+
+  gdImageSetThickness(im, lineWidth);
+gdImageLine(im, startX2 +120, startY2 +155, endX2 +120, endY2 +155, white);
+
+  gdImageSetThickness(im, lineWidth +14);
+gdImageLine(im, startX2 +145, startY2 +157, endX2 +145, endY2 +157, white);
+
+    gdImageSetThickness(im, lineWidth -10);
+gdImageLine(im, 232, 426, 206, 448, white);
+
+  }
+
+  {
+    // 起點和終點位置
+
+  int startX = 564;   
+  // 線的起點 X 座標
+
+  int startY = 520;  
+  // 線的起點 Y 座標
+
+  int endX = 704;    
+  // 線的終點 X 座標
+
+  int endY = 350;    
+  // 線的終點 Y 座標
+
+  int lineWidth = 23;  // 線的寬度
+
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX +70, startY +20, endX +70, endY +20, black);
+
+    // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX, startY, endX, endY, black);
+
+    // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX +35, startY +10, endX +35, endY +10, black);
+
+gdImageSetThickness(im, lineWidth -10);
+gdImageLine(im, 624, 400, 734, 490, white);
+
+  int startX2 = 553;   
+  // 線的起點 X 座標
+
+  int startY2 = 330;  
+  // 線的起點 Y 座標
+
+  int endX2 = 633;    
+  // 線的終點 X 座標
+
+  int endY2 = 390;    
+  // 線的終點 Y 座標
+
+  int lineWidth2 = 25;  // 線的寬度
+
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth +8);
+  gdImageLine(im, startX2 +139, startY2, endX2 +139, endY2, white);
+
+  gdImageSetThickness(im, lineWidth +10);
+gdImageLine(im, startX2 +157, startY2 -9 , endX2 +157, endY2 -9 , white);
+
+  gdImageSetThickness(im, lineWidth);
+gdImageLine(im, startX2 +25, startY2 +155, endX2 +25, endY2 +155, white);
+
+  gdImageSetThickness(im, lineWidth +30);
+gdImageLine(im, startX2 -3, startY2 +170, endX2 , endY2 +170, white);
+  }
+  {
+    // 起點和終點位置
+
+  int startX = 330;   
+  // 線的起點 X 座標
+
+  int startY = 520;  
+  // 線的起點 Y 座標
+
+  int endX = 190;    
+  // 線的終點 X 座標
+
+  int endY = 350;    
+  // 線的終點 Y 座標
+
+  int lineWidth = 23;  // 線的寬度
+
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX, startY, endX, endY, black);
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX -35, startY +10, endX -35, endY +10, black);
+
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX -70, startY +20, endX -70, endY +20, black);
+
+  int startX2 = 213;   
+  // 線的起點 X 座標
+
+  int startY2 = 330;  
+  // 線的起點 Y 座標
+
+  int endX2 = 133;    
+  // 線的終點 X 座標
+
+  int endY2 = 390;    
+  // 線的終點 Y 座標
+
+  int lineWidth2 = 25;  // 線的寬度
+
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth +8);
+  gdImageLine(im, startX2 -11, startY2, endX2 -11, endY2, white);
+
+  gdImageSetThickness(im, lineWidth +10);
+gdImageLine(im, startX2 -30, startY2 -9 , endX2 -30, endY2 -9 , white);
+
+  gdImageSetThickness(im, lineWidth );
+gdImageLine(im, startX2 +100, startY2 +150, endX2 +100, endY2 +150, white);
+
+  gdImageSetThickness(im, lineWidth);
+gdImageLine(im, startX2 +120, startY2 +155, endX2 +120, endY2 +155, white);
+
+  gdImageSetThickness(im, lineWidth +14);
+gdImageLine(im, startX2 +145, startY2 +157, endX2 +145, endY2 +157, white);
+
+    gdImageSetThickness(im, lineWidth -10);
+gdImageLine(im, 232, 426, 206, 448, white);
+
+  }
+  {
+    // 起點和終點位置
+
+  int startX = 564;   
+  // 線的起點 X 座標
+
+  int startY = 97;  
+  // 線的起點 Y 座標
+
+  int endX = 704;    
+  // 線的終點 X 座標
+
+  int endY = 267;    
+  // 線的終點 Y 座標
+
+  int lineWidth = 23;  // 線的寬度
+
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX +70, startY -20, endX +70, endY -20, black);
+
+    // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX, startY, endX, endY, black);
+
+    gdImageSetThickness(im, lineWidth -10);
+gdImageLine(im, 624, 212, 734, 118, white);
+
+    // 繪製線段
+  gdImageSetThickness(im, lineWidth);
+  gdImageLine(im, startX +35, startY -10, endX +35, endY -10, black);
+
+  int startX2 = 553;   
+  // 線的起點 X 座標
+
+  int startY2 = 277;  
+  // 線的起點 Y 座標
+
+  int endX2 = 633;    
+  // 線的終點 X 座標
+
+  int endY2 = 217;    
+  // 線的終點 Y 座標
+
+  int lineWidth2 = 25;  // 線的寬度
+
+  // 繪製線段
+  gdImageSetThickness(im, lineWidth +8);
+  gdImageLine(im, startX2 +134, startY2, endX2 +134, endY2, white);
+
+  gdImageSetThickness(im, lineWidth +10);
+gdImageLine(im, startX2 +157, startY2 +9 , endX2 +157, endY2 +9 , white);
+
+  gdImageSetThickness(im, lineWidth);
+gdImageLine(im, startX2 +25, startY2 -155, endX2 +25, endY2 -155, white);
+
+    gdImageSetThickness(im, lineWidth +30);
+gdImageLine(im, startX2 -5, startY2 -155, endX2 -5, endY2 -155, white);
+
+  }
+
+    // Save image
+FILE *outputFile = fopen("./../images/korea_flag.png", "wb");
+if (outputFile == NULL) {
+    fprintf(stderr, "Error opening the output file.\n");
+    return 1;
+}
+  gdImagePngEx(im, outputFile, 9);
+      fclose(outputFile);
+      gdImageDestroy(im);
+      return 0;
+  }</pre>
+<img alt="" height="328" src="data:image/png;base64,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" width="491"/>
 <h1>w12</h1>
 <p>#include &lt;stdio.h&gt;<br/>#include &lt;gd.h&gt;<br/>#include &lt;math.h&gt;</p>
 <p>int main() {<br/> int width = 800;<br/> int height = 600;</p>
