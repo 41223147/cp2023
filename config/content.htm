@@ -1102,17 +1102,85 @@ if (outputFile == NULL) {
 <p>Logout: 登出</p>
 <p>Convert: 將 config/content.htm 經過分頁程式處理後, 轉為 content 目錄下的超文件</p>
 <h1>w12</h1>
-<p>#include &lt;stdio.h&gt;<br/>#include &lt;gd.h&gt;<br/>#include &lt;math.h&gt;</p>
-<p>int main() {<br/> int width = 800;<br/> int height = 600;</p>
-<p>gdImagePtr img = gdImageCreateTrueColor(width, height);<br/> gdImageAlphaBlending(img, 0);</p>
-<p>FILE *outputFile = fopen("hellogd.png", "wb");<br/> if (outputFile == NULL) {</p>
-<p>fprintf(stderr, "Error opening the output file.\n");</p>
-<p>return 1;<br/> }</p>
-<p>int red = gdImageColorAllocate(img, 255, 0, 0);<br/> int blue = gdImageColorAllocate(img, 0, 0, 255);<br/> int black = gdImageColorAllocate(img, 0, 0, 0);<br/> int white = gdImageColorAllocate(img, 255, 255, 255);<br/> // 長方形塗色<br/> gdImageFilledRectangle(img, 0, 0, width, height, white);<br/> gdImageFilledRectangle(img, 0, 0, (int)width/4, (int)height/4, blue);<br/> // 橢圓形塗色<br/> gdImageFilledEllipse(img, (int)width*3/4, (int)height/4, (int)width/4, (int)width/4, red);<br/> // 橢圓形畫線<br/> gdImageEllipse(img, (int)width*3/4, (int)height*3/4, (int)width/4, (int)width/4, red);<br/> // 畫直線<br/> gdImageLine(img, (int)width/2, (int)height/2, (int)width/2, (int)height/2 + 100, blue);</p>
-<p>// 多邊形畫線<br/> gdPoint points[4];<br/> points[0].x = (int)width/4;<br/> points[0].y = (int)height*3/4;<br/> points[1].x = points[0].x + 100;<br/> points[1].y = points[0].y;<br/> points[2].x = points[1].x;<br/> points[2].y = points[1].y + 100;<br/> points[3].x = points[2].x - 100;<br/> points[3].y = points[2].y;<br/> gdImagePolygon(img, points, 4, black);</p>
-<p>// 多邊形塗色<br/> gdPoint points2[4];<br/> points2[0].x = (int)width/3;<br/> points2[0].y = (int)height/2;<br/> points2[1].x = points2[0].x + 100;<br/> points2[1].y = points2[0].y;<br/> points2[2].x = points2[1].x;<br/> points2[2].y = points2[1].y + 100;<br/> points2[3].x = points2[2].x - 150;<br/> points2[3].y = points2[2].y;<br/> gdImageFilledPolygon(img, points2, 4, red);</p>
-<p>gdImagePngEx(img, outputFile, 9);<br/> fclose(outputFile);<br/> gdImageDestroy(img);<br/> return 0;<br/>}</p>
-<p><img alt="" height="400" src="data:image/png;base64,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" width="533"/></p>
+<p></p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+ 
+// Declare the rotation function
+void rotateFilledPolygon(int x_orig, int y_orig, double rotation_ang, gdPoint *points, int num_points) {
+    int i;
+    double angle_rad = rotation_ang * M_PI / 180.0;
+ 
+    for (i = 0; i &lt; num_points; i++) {
+        int x = points[i].x - x_orig;
+        int y = points[i].y - y_orig;
+ 
+        points[i].x = x_orig + (int)(x * cos(angle_rad) - y * sin(angle_rad));
+        points[i].y = y_orig + (int)(x * sin(angle_rad) + y * cos(angle_rad));
+    }
+}
+ 
+int main() {
+    int width = 800;
+    int height = 600;
+ 
+    gdImagePtr img = gdImageCreateTrueColor(width, height);
+    gdImageAlphaBlending(img, 0);
+ 
+    FILE *outputFile = fopen("hellogd1.png", "wb");
+    if (outputFile == NULL) {
+        fprintf(stderr, "Error opening the output file.\n");
+        return 1;
+    }
+ 
+    int red = gdImageColorAllocate(img, 255, 0, 0);
+    int blue = gdImageColorAllocate(img, 0, 0, 255);
+    int black = gdImageColorAllocate(img, 0, 0, 0);
+    int white = gdImageColorAllocate(img, 255, 255, 255);
+ 
+    gdImageFilledRectangle(img, 0, 0, width, height, white);
+    gdImageFilledRectangle(img, 0, 0, (int)width / 4, (int)height / 4, blue);
+ 
+    gdImageFilledEllipse(img, (int)width * 3 / 4, (int)height / 4, (int)width / 4, (int)width / 4, red);
+    gdImageEllipse(img, (int)width * 3 / 4, (int)height * 3 / 4, (int)width / 4, (int)width / 4, red);
+    gdImageLine(img, (int)width / 2, (int)height / 2, (int)width / 2, (int)height / 2 + 100, blue);
+ 
+    gdPoint points[4];
+    points[0].x = (int)width / 4;
+    points[0].y = (int)height * 3 / 4;
+    points[1].x = points[0].x + 100;
+    points[1].y = points[0].y;
+    points[2].x = points[1].x;
+    points[2].y = points[1].y + 100;
+    points[3].x = points[2].x - 100;
+    points[3].y = points[2].y;
+ 
+    // Call the rotation function
+    rotateFilledPolygon((int)width / 4 + 50, (int)height * 3 / 4 + 50, 45.0, points, 4);
+    gdImagePolygon(img, points, 4, black);
+ 
+    gdPoint points2[4];
+    points2[0].x = (int)width / 3;
+    points2[0].y = (int)height / 2;
+    points2[1].x = points2[0].x + 100;
+    points2[1].y = points2[0].y;
+    points2[2].x = points2[1].x;
+    points2[2].y = points2[1].y + 100;
+    points2[3].x = points2[2].x - 150;
+    points2[3].y = points2[2].y;
+ 
+    // Call the rotation function
+    rotateFilledPolygon((int)width / 3 + 50, (int)height / 2 + 50, 30.0, points2, 4);
+    gdImageFilledPolygon(img, points2, 4, red);
+ 
+    gdImagePngEx(img, outputFile, 9);
+    fclose(outputFile);
+    gdImageDestroy(img);
+ 
+    return 0;
+}</pre>
+<p><img alt="" height="400" src="data:image/png;base64,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" width="533"/><br/><br/></p>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
 #include &lt;gd.h&gt;
 #include &lt;math.h&gt;
