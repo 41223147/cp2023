@@ -1,22 +1,15 @@
 #include <stdio.h>     // Include the standard input/output header file.
-int main() {
-    float rec_width;         /* Declare variable 'rec_width' to store the width of the rectangle */
-    float rec_height;        /* Declare variable 'rec_height' to store the height of the rectangle */
-    float rec_perimeter;     /* Declare variable 'rec_perimeter' to store the perimeter (to be computed) */
 
-    // Prompt the user to input the height of the rectangle.
-    printf("Input the height of the Rectangle : ");
-    scanf("%f", &rec_height);  // Read the value of 'rec_height' from the user.
+int num1, num2, num3;   /* declaration of three variables */  
+int sum;                /* variable to store the sum of numbers */
+char line_text[50];     /* line of input from keyboard */ 
 
-    // Prompt the user to input the width of the rectangle.
-    printf("Input the width of the Rectangle : ");
-    scanf("%f", &rec_width);  // Read the value of 'rec_width' from the user.
-
-    // Calculate the perimeter of the rectangle using the formula: perimeter = 2 * ( width + height )
-    rec_perimeter = 2.0 * (rec_height + rec_width);
-
-    // Print the calculated perimeter of the rectangle.
-    printf("Perimeter of the Rectangle is : %f\n", rec_perimeter);
-
-    return 0;  // Indicate successful program execution.
-}
+int main() 
+{  
+printf("Input three numbers separated by comma : ");   // Prompt the user to input three numbers separated by comma.
+fgets(line_text, sizeof(line_text), stdin);   // Read a line of input from the user and store it in 'line_text'.
+sscanf(line_text, "10, 15, 10", &num1, &num2, &num3);   // Convert the input to integers and store them in 'num1', 'num2', 'num3'.
+sum = num1 + num2 + num3;   // Calculate the sum of the three numbers.
+printf("The sum of three numbers : %d\n", sum);   // Print the sum of the three numbers.  
+return(0);   // Return 0 to indicate successful execution of the program.  
+}  
