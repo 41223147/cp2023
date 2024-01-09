@@ -131,7 +131,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li class='has-children'><a href='作業內容.html'>作業內容</a><ul class='dropdown'><li><a href='w2.html'>w2</a><li><a href='w3.html'>w3</a><li><a href='w4.html'>w4</a><li><a href='w5.html'>w5</a><li class='has-children'><a href='w6.html'>w6</a><ul class='dropdown'><li><a href='ROC.html'>ROC</a><li><a href='USA.html'>USA</a><li><a href='Japan.html'>Japan</a><li><a href='UK.html'>UK</a><li><a href='PROC.html'>PROC</a><li><a href='Korea.html'>Korea</a></li></ul><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a><li class='has-children'><a href='w15.html'>w15</a><ul class='dropdown'><li><a href='1Answer.html'>1Answer</a><li><a href='2Answer.html'>2Answer</a><li><a href='失敗的.html'>失敗的</a></li></li></ul></ul><li><a href='SSH.html'>SSH</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='關於.html'>關於</a><li class='has-children'><a href='作業內容.html'>作業內容</a><ul class='dropdown'><li><a href='w2.html'>w2</a><li><a href='w3.html'>w3</a><li><a href='w4.html'>w4</a><li><a href='W5.html'>W5</a><li class='has-children'><a href='w6.html'>w6</a><ul class='dropdown'><li><a href='鵬.html'>鵬</a><li><a href='美國.html'>美國</a><li><a href='日本.html'>日本</a><li><a href='英國.html'>英國</a><li><a href='過程.html'>過程</a><li><a href='韓國.html'>韓國</a></li></ul><li><a href='w7.html'>w7</a><li><a href='W10.html'>W10</a><li><a href='w12.html'>w12</a><li><a href='w13.html'>w13</a><li class='has-children'><a href='W15.html'>W15</a><ul class='dropdown'><li><a href='1個回答.html'>1個回答</a><li><a href='2個回答.html'>2個回答</a><li><a href='詢問Chat GPT和自己嘗試執行程式後的影片.html'>詢問Chat GPT和自己嘗試執行程式後的影片</a><li><a href='失敗的.html'>失敗的</a></li></li></ul></ul><li><a href='SSH.html'>SSH</a><li><a href='布萊頓.html'>布萊頓</a></li>
                       </ul>
                 </nav>
               </div>
@@ -142,170 +142,170 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w10 << <a href='w10.html'>Previous</a> <a href='w13.html'>Next</a> >> w13<br /><h1>w12</h1>
+    <div id="tipue_search_content">W10 << <a href='W10.html'>Previous</a> <a href='w13.html'>Next</a> >> w13<br /><h1>w12</h1>
 <p></p>
-<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
-#include &lt;gd.h&gt;
-#include &lt;math.h&gt;
- 
-// Declare the rotation function
-void rotateFilledPolygon(int x_orig, int y_orig, double rotation_ang, gdPoint *points, int num_points) {
-    int i;
-    double angle_rad = rotation_ang * M_PI / 180.0;
- 
-    for (i = 0; i &lt; num_points; i++) {
-        int x = points[i].x - x_orig;
-        int y = points[i].y - y_orig;
- 
-        points[i].x = x_orig + (int)(x * cos(angle_rad) - y * sin(angle_rad));
-        points[i].y = y_orig + (int)(x * sin(angle_rad) + y * cos(angle_rad));
-    }
-}
- 
-int main() {
-    int width = 800;
-    int height = 600;
- 
-    gdImagePtr img = gdImageCreateTrueColor(width, height);
-    gdImageAlphaBlending(img, 0);
- 
-    FILE *outputFile = fopen("hellogd1.png", "wb");
-    if (outputFile == NULL) {
-        fprintf(stderr, "Error opening the output file.\n");
-        return 1;
-    }
- 
-    int red = gdImageColorAllocate(img, 255, 0, 0);
-    int blue = gdImageColorAllocate(img, 0, 0, 255);
-    int black = gdImageColorAllocate(img, 0, 0, 0);
-    int white = gdImageColorAllocate(img, 255, 255, 255);
- 
-    gdImageFilledRectangle(img, 0, 0, width, height, white);
-    gdImageFilledRectangle(img, 0, 0, (int)width / 4, (int)height / 4, blue);
- 
-    gdImageFilledEllipse(img, (int)width * 3 / 4, (int)height / 4, (int)width / 4, (int)width / 4, red);
-    gdImageEllipse(img, (int)width * 3 / 4, (int)height * 3 / 4, (int)width / 4, (int)width / 4, red);
-    gdImageLine(img, (int)width / 2, (int)height / 2, (int)width / 2, (int)height / 2 + 100, blue);
- 
-    gdPoint points[4];
-    points[0].x = (int)width / 4;
-    points[0].y = (int)height * 3 / 4;
-    points[1].x = points[0].x + 100;
-    points[1].y = points[0].y;
-    points[2].x = points[1].x;
-    points[2].y = points[1].y + 100;
-    points[3].x = points[2].x - 100;
-    points[3].y = points[2].y;
- 
-    // Call the rotation function
-    rotateFilledPolygon((int)width / 4 + 50, (int)height * 3 / 4 + 50, 45.0, points, 4);
-    gdImagePolygon(img, points, 4, black);
- 
-    gdPoint points2[4];
-    points2[0].x = (int)width / 3;
-    points2[0].y = (int)height / 2;
-    points2[1].x = points2[0].x + 100;
-    points2[1].y = points2[0].y;
-    points2[2].x = points2[1].x;
-    points2[2].y = points2[1].y + 100;
-    points2[3].x = points2[2].x - 150;
-    points2[3].y = points2[2].y;
- 
-    // Call the rotation function
-    rotateFilledPolygon((int)width / 3 + 50, (int)height / 2 + 50, 30.0, points2, 4);
-    gdImageFilledPolygon(img, points2, 4, red);
- 
-    gdImagePngEx(img, outputFile, 9);
-    fclose(outputFile);
-    gdImageDestroy(img);
- 
-    return 0;
-}</pre>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">#include &lt;stdio.h&gt; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+#include &lt;gd.h&gt; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+#include &lt;math.h&gt; </span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+// 宣告旋轉函數</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+voidrotateFilledPolygon(int x_orig, int y_orig, doublerotation_ang, gdPoint *points, int num_points) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    int i; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    雙角度_rad = 旋轉_ang * M_PI / 180.0；</span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    for (i = 0; i &lt; num_points; i++) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        int x = 點[i].x - x_orig; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        int y = 點[i].y - y_orig；</span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        點[i].x = x_orig + (int)(x * cos(angle_rad) - y * sin(angle_rad)); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        點[i].y = y_orig + (int)(x * sin(angle_rad) + y * cos(angle_rad)); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    } </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+} </span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+int main() { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    int 寬度 = 800; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    整數高度=600；</span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    gdImagePtr img = gdImageCreateTrueColor(寬度, 高度); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    gdImageAlphaBlending(img, 0); </span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    FILE *outputFile = fopen("hellogd1.png", "wb"); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    if (outputFile == NULL) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        fprintf(stderr, "開啟輸出檔時發生錯誤。\n"); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+        返回1；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    int </span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    red = gdImageColorAllocate(img, 255, 0, 0); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    int 藍色 = gdImageColorAllocate(img, 0, 0, 255); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    int black = gdImageColorAllocate(img, 0, 0, 0); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    int 白色 = gdImageColorAllocate(img, 255, 255, 255); </span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    gdImageFilledRectangle(img, 0, 0, 寬度, 高度, 白色); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    gdImageFilledRectangle(img, 0, 0, (int)寬度 / 4, (int)高度 / 4, 藍色); </span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    gdImageFilledEllipse(img, (int)寬度 * 3 / 4, (int)高度 / 4, (int)寬度 / 4, (int)寬度 / 4, 紅色); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    gdImageEllipse(img, (int)寬度 * 3 / 4, (int)高度 * 3 / 4, (int)寬度 / 4, (int)寬度 / 4, 紅色); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    gdImageLine(img, (int)寬度 / 2, (int)高度 / 2, (int)寬度 / 2, (int)高度 / 2 + 100, 藍色); </span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    gdPoint點[4]；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點[0].x = (int)寬度 / 4; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點[0].y = (int)高度 * 3 / 4; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點[1].x = 點[0].x + 100；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點[1].y = 點[0].y; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點[2].x = 點[1].x；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點[2].y = 點[1].y + 100；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點[3].x = 點[2].x - 100；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點[3].y = 點[2].y; </span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    // 呼叫旋轉函數</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    rotateFilledPolygon((int)width / 4 + 50, (int)height * 3 / 4 + 50, 45.0, points, 4); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    gdImagePolygon(img, 點, 4, 黑色); </span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    gdPoint點2[4]；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點2[0].x = (int)寬度/3; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點2[0].y = (int)高度/2; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點2[1].x = 點2[0].x + 100；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點2[1].y = 點2[0].y; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點2[2].x = 點2[1].x; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點2[2].y = 點2[1].y + 100；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點2[3].x = 點2[2].x - 150；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    點2[3].y = 點2[2].y;</span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    // 呼叫旋轉函數</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    rotateFilledPolygon((int)width / 3 + 50, (int)height / 2 + 50, 30.0,points2, 4); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    gdImageFilledPolygon(img, 點2, 4, 紅色); </span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    gdImagePngEx(img, 輸出檔, 9); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    fclose(輸出檔); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    gdImageDestroy(img); </span></span>
+ <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+    返回0；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span></pre>
 <p><img alt="" height="400" src="data:image/png;base64,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" width="533"/><br/><br/></p>
-<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
-#include &lt;gd.h&gt;
-#include &lt;math.h&gt;
-
-// Declare the rotation function
-void rotateFilledPolygon(int x_orig, int y_orig, double rotation_ang, gdPoint *points, int num_points) {
-int i;
-double angle_rad = rotation_ang * M_PI / 180.0;
-
-for (i = 0; i &lt; num_points; i++) {
-int x = points[i].x - x_orig;
-int y = points[i].y - y_orig;
-
-points[i].x = x_orig + (int)(x * cos(angle_rad) - y * sin(angle_rad));
-points[i].y = y_orig + (int)(x * sin(angle_rad) + y * cos(angle_rad));
-}
-}
-
-int main() {
-int width = 800;
-int height = 600;
-
-gdImagePtr img = gdImageCreateTrueColor(width, height);
-gdImageAlphaBlending(img, 0);
-
-FILE *outputFile = fopen("./../images/hellogd2.png", "wb");
-if (outputFile == NULL) {
-fprintf(stderr, "Error opening the output file.\n");
-return 1;
-}
-
-int red = gdImageColorAllocate(img, 255, 0, 0);
-int blue = gdImageColorAllocate(img, 0, 0, 255);
-int black = gdImageColorAllocate(img, 0, 0, 0);
-int white = gdImageColorAllocate(img, 255, 255, 255);
-
-gdImageFilledRectangle(img, 0, 0, width, height, white);
-gdImageFilledRectangle(img, 0, 0, (int)width / 4, (int)height / 4, blue);
-
-gdImageFilledEllipse(img, (int)width * 3 / 4, (int)height / 4, (int)width / 4, (int)width / 4, red);
-gdImageEllipse(img, (int)width * 3 / 4, (int)height * 3 / 4, (int)width / 4, (int)width / 4, red);
-gdImageLine(img, (int)width / 2, (int)height / 2, (int)width / 2, (int)height / 2 + 100, blue);
-
-gdPoint points[4];
-points[0].x = (int)width / 4;
-points[0].y = (int)height * 3 / 4;
-points[1].x = points[0].x + 100;
-points[1].y = points[0].y;
-points[2].x = points[1].x;
-points[2].y = points[1].y + 100;
-points[3].x = points[2].x - 100;
-points[3].y = points[2].y;
-
-// Call the rotation function multiple times
-for (int i = 0; i &lt; 4; i++) {
-rotateFilledPolygon((int)width / 4 + 50, (int)height * 3 / 4 + 50, 30.0, points, 4);
-gdImagePolygon(img, points, 4, black);
-}
-
-gdPoint points2[4];
-points2[0].x = (int)width / 3;
-points2[0].y = (int)height / 2;
-points2[1].x = points2[0].x + 100;
-points2[1].y = points2[0].y;
-points2[2].x = points2[1].x;
-points2[2].y = points2[1].y + 100;
-points2[3].x = points2[2].x - 150;
-points2[3].y = points2[2].y;
-
-// Call the rotation function multiple times
-for (int i = 0; i &lt; 12; i++) {
-//rotateFilledPolygon((int)width / 3 + 50, (int)height / 2 + 50, 30.0, points2, 4);
-rotateFilledPolygon(500, 200, 30.0, points2, 4);
-gdImageFilledPolygon(img, points2, 4, red);
-}
-
-gdImagePngEx(img, outputFile, 9);
-fclose(outputFile);
-gdImageDestroy(img);
-
-return 0;
-}</pre>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">#include &lt;stdio.h&gt; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+#include &lt;gd.h&gt; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+#include &lt;math.h&gt; </span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+// 宣告旋轉函數</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+voidrotateFilledPolygon(int x_orig, int y_orig, doublerotation_ang, gdPoint *points, int num_points) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+int i; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+雙角度_rad = 旋轉_ang * M_PI / 180.0；</span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+for (i = 0; i &lt; num_points; i++) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+int x = 點[i].x - x_orig; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+int y = 點[i].y - y_orig；</span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點[i].x = x_orig + (int)(x * cos(angle_rad) - y * sin(angle_rad)); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點[i].y = y_orig + (int)(x * sin(angle_rad) + y * cos(angle_rad)); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+} </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+} </span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+int main() { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+int 寬度 = 800; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+整數高度=600；</span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+gdImagePtr img = gdImageCreateTrueColor(寬度, 高度); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+gdImageAlphaBlending(img, 0); </span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+FILE *outputFile = fopen("./../images/hellogd2.png", "wb"); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+if (outputFile == NULL) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+fprintf(stderr, "開啟輸出檔時發生錯誤。\n"); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+返回1；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+int </span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+red = gdImageColorAllocate(img, 255, 0, 0); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+int 藍色 = gdImageColorAllocate(img, 0, 0, 255); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+int black = gdImageColorAllocate(img, 0, 0, 0); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+int 白色 = gdImageColorAllocate(img, 255, 255, 255); </span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+gdImageFilledRectangle(img, 0, 0, 寬度, 高度, 白色); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+gdImageFilledRectangle(img, 0, 0, (int)寬度 / 4, (int)高度 / 4, 藍色); </span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+gdImageFilledEllipse(img, (int)寬度 * 3 / 4, (int)高度 / 4, (int)寬度 / 4, (int)寬度 / 4, 紅色); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+gdImageEllipse(img, (int)寬度 * 3 / 4, (int)高度 * 3 / 4, (int)寬度 / 4, (int)寬度 / 4, 紅色); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+gdImageLine(img, (int)寬度 / 2, (int)高度 / 2, (int)寬度 / 2, (int)高度 / 2 + 100, 藍色); </span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+gdPoint點[4]；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點[0].x = (int)寬度 / 4; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點[0].y = (int)高度 * 3 / 4; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點[1].x = 點[0].x + 100；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點[1].y = 點[0].y; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點[2].x = 點[1].x；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點[2].y = 點[1].y + 100；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點[3].x = 點[2].x - 100；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點[3].y = 點[2].y; </span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+// 多次呼叫旋轉函數</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+for (int i = 0; i &lt; 4; i++) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+rotateFilledPolygon((int)width / 4 + 50, (int)height * 3 / 4 + 50, 30.0, points, 4) ; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+gdImagePolygon(img, 點, 4, 黑色); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+} </span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+gdPoint 點2[4]; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點2[0].x = (int)寬度/3; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點2[0].y = (int)高度/2; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點2[1].x = 點2[0].x + 100；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點2[1].y = 點2[0].y; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點2[2].x = 點2[1].x; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點2[2].y = 點2[1].y + 100；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點2[3].x = 點2[2].x - 150；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+點2[3].y = 點2[2].y; </span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+// 多次呼叫旋轉函數</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+for (int i = 0; i &lt; 12; i++) {</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+//旋轉填滿多邊形((int)寬度 / 3 + 50, (int)高度 / 2 + 50, 30.0, 點2, 4); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+旋轉填充多邊形(500, 200, 30.0, 點2, 4); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+gdImageFilledPolygon(img, 點2, 4, 紅色); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+gdImagePngEx </span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+(img, 輸出檔, 9); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+fclose(輸出檔); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+gdImageDestroy(img); </span></span>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+返回0；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+}</span></span></pre>
 <p><img alt="" height="300" src="data:image/png;base64,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" width="400"/></p>
-<br />w10 << <a href='w10.html'>Previous</a> <a href='w13.html'>Next</a> >> w13</div>
+<br />W10 << <a href='W10.html'>Previous</a> <a href='w13.html'>Next</a> >> w13</div>
         
     <!-- footer -->
       <div class="container">
