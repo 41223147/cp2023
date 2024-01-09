@@ -1,25 +1,22 @@
-#include <stdio.h>
+#include <stdio.h>     // Include the standard input/output header file.
+int main() {
+    float rec_width;         /* Declare variable 'rec_width' to store the width of the rectangle */
+    float rec_height;        /* Declare variable 'rec_height' to store the height of the rectangle */
+    float rec_perimeter;     /* Declare variable 'rec_perimeter' to store the perimeter (to be computed) */
 
-int main() 
-{
-    // Print top line of pattern
-    printf("    ######\n");
+    // Prompt the user to input the height of the rectangle.
+    printf("Input the height of the Rectangle : ");
+    scanf("%f", &rec_height);  // Read the value of 'rec_height' from the user.
 
-    // Print second line of pattern
-    printf("  ##      ##\n");
+    // Prompt the user to input the width of the rectangle.
+    printf("Input the width of the Rectangle : ");
+    scanf("%f", &rec_width);  // Read the value of 'rec_width' from the user.
 
-    // Print lines 3 to 7 of pattern
-    printf(" #\n");
-    printf(" #\n");
-    printf(" #\n");
-    printf(" #\n");
-    printf(" #\n");
+    // Calculate the perimeter of the rectangle using the formula: perimeter = 2 * ( width + height )
+    rec_perimeter = 2.0 * (rec_height + rec_width);
 
-    // Print bottom line of pattern
-    printf("  ##      ##\n");
+    // Print the calculated perimeter of the rectangle.
+    printf("Perimeter of the Rectangle is : %f\n", rec_perimeter);
 
-    // Print last line of pattern
-    printf("    ######\n");
-
-    return(0);
+    return 0;  // Indicate successful program execution.
 }
