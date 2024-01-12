@@ -2059,7 +2059,7 @@ printf("Bye ");
 printf("Bye");
 return 0;
 }</pre>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="70" src="/images/螢幕擷取畫面 2024-01-12 190508.png" width="435"/></span></span>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="70" src="/images/螢幕擷取畫面 2024-01-12 190508.png" width="435"/></span></span></p>
 <h2>ex5</h2>
 <h4><span>這段程式執行後可對字符型變數進行賦值和輸出</span></h4>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -2072,7 +2072,7 @@ y = (char)97;
 printf( " x = %c, y = %c, ASCII of y = %d", x, y, y );
 return 0;
 }</pre>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="59" src="/images/螢幕擷取畫面 2024-01-12 191153.png" width="486"/></span></span>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="59" src="/images/螢幕擷取畫面 2024-01-12 191153.png" width="486"/></span></span></p>
 <h2><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">ex6</span></span></h2>
 <h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span>這個程式會檢查所使用的C語言標準版本，然後印出相應的訊息</span></span></span></h4>
 <p></p>
@@ -2093,8 +2093,57 @@ int main(int argc, char** argv) {
     // Indicate successful execution
     return 0;
 }</pre>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="82" src="/images/螢幕擷取畫面 2024-01-12 191813.png" width="395"/></span></span>
-<h1><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">SSH</span></span></h1>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="82" src="/images/螢幕擷取畫面 2024-01-12 191813.png" width="395"/></span></span></p>
+<h2><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">ex7</span></span></h2>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span>這個程式使用了邏輯非運算符 '</span><code>!'</code><span> 來對變數的值進行取反</span></span></span></h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+void main()
+{
+int a;
+a = 6;
+printf("%d\n", !a );
+a = 0;
+printf("%d\n", !a );
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="94" src="/images/螢幕擷取畫面 2024-01-12 192919.png" width="353"/></span></span>
+<h2><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">ex8</span></span></h2>
+<h4>此程式執行後可計算出c的值</h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+int main()
+{
+int a = 4;
+int A = 12;
+int b = 6, c;
+c = A - a + b;
+/* 輸出 a, A, b, c 到螢幕 */
+printf( "a = %d, A = %d, b = %d, c = %d ", a, A, b, c );
+return 0;
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="62" src="/images/螢幕擷取畫面 2024-01-12 193247.png" width="505"/></span></span>
+<h2>ex9</h2>
+<h4><span>這個程式使用邏輯 AND 運算符 '</span><code>&amp;&amp;'</code><span> 來進行邏輯運算</span></h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">include &lt;stdio.h&gt;
+void main()
+{
+printf("%d\n", 1 &amp;&amp; 3 );
+printf("%d\n", 0 &amp;&amp; 0 );
+printf("%d\n", 2 &amp;&amp; 2 );
+}</pre>
+<img alt="" height="165" src="/images/螢幕擷取畫面 2024-01-12 194603.png" width="376"/>
+<h2>ex10</h2>
+<h4><span>這個程式是一個簡單的C語言程式，用來讓使用者輸入一個字元，然後再將輸入的字元顯示出來。</span></h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+/* read and display a number */
+int main () {
+ char c;
+ printf("Mechanicl design: ");
+ c = getchar(); /* read the character in */
+ printf("Design mechanicl: ");
+ putchar(c); /* write the character */
+ return(0);
+}</pre>
+<img alt="" height="65" src="/images/螢幕擷取畫面 2024-01-12 195320.png" width="362"/>
+<h1>SSH</h1>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">下載膩子</span></span></p>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">在putty資料夾內開啟puttygen.exe做一把金鑰匙</span></span></p>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">將key儲存在github帳號內(開啟設定點選ssh)</span></span></p>

@@ -2,7 +2,7 @@
         <head>
         <title>cmsite</title>
         <meta charset="utf-8">
-<meta property="head" content="H3">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -142,100 +142,17 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">ROC << <a href='ROC.html'>Previous</a> <a href='Japan.html'>Next</a> >> Japan<br /><h1>USA</h1>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">程式如下</span></span></p>
-<pre class="brush:cpp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">#include &lt;stdio.h&gt; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-#include &lt;math.h&gt; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-#include &lt;gd.h&gt; </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-void draw_usa_flag(gdImagePtr img); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-void draw_star(gdImagePtr img, int x, int y, int size, int color, double spin_angle); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-int main() { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-int 寬度 = 800; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-int 高度 = (int)(寬度 / 1.9); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-gdImagePtr img = gdImageCreateTrueColor(寬度, 高度); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-gdImageAlphaBlending(img, 0); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-繪製_美國_標誌（img）；</span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-FILE *outputFile = fopen("./../images/usa_flag.png", "wb"); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-if (outputFile == NULL) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-fprintf(stderr, "開啟輸出檔時發生錯誤。\n"); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-返回1；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-gdImagePngEx </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-(img, 輸出檔, 9); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-fclose(輸出檔); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-gdImageDestroy(img); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-返回0；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-} </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-void draw_usa_flag(gdImagePtr img) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-int width = gdImageSX(img); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-int 高度 = gdImageSY(img); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-int 紅、白、藍；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-// 國旗顏色</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-red = gdImageColorAllocate(img, 178, 34, 52); </span><span style="vertical-align: inherit;">// 條紋紅</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-white = gdImageColorAllocate(img, 255, 255, 255); </span><span style="vertical-align: inherit;">// 白色條紋</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-blue = gdImageColorAllocate(img, 60, 59, 110); </span><span style="vertical-align: inherit;">// 藍色</span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-int stripe_height = height / 13; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-int stripe_width = 寬度；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-int star_size = (int)(0.0308 * 高度); </span><span style="vertical-align: inherit;">// 星星大小</span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-for (int y = 0; y &lt; height; y += stripe_height) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-if (y / stripe_height % 2 == 0) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-gdImageFilledRectangle(img, 0, y, stripe_width, y + str. </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-} else { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-gdImageFilledRectangle(img, 0, y, stripe_width, y + stripe_height, 白色); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-gdImageFilledRectangle </span><span style="vertical-align: inherit;">
-(img, 0, 0, 寬度 * 2 / 5, stripe_height * 7, 藍色) </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-; </span><span style="vertical-align: inherit;">
-int star_spacing_x = (int)(0.129 * 高度); </span><span style="vertical-align: inherit;">// 橫向星星之間的間距</span><span style="vertical-align: inherit;">
-int star_spacing_y = (int)(0.054 * height); </span><span style="vertical-align: inherit;">// 縱向星星之間的距離</span><span style="vertical-align: inherit;">
-int star_start_x = (int)(0.125 * height); </span><span style="vertical-align: inherit;">// 星星的起始X位置</span><span style="vertical-align: inherit;">
-int star_start_y = (int)(0.0485 * height); </span><span style="vertical-align: inherit;">// 星星的起始Y位置</span><span style="vertical-align: inherit;">
-for (int row = 0; row &lt; 9; row++) { </span><span style="vertical-align: inherit;">
-int starPerRow = (row % 2 == 0) ? </span><span style="vertical-align: inherit;">6：5；</span><span style="vertical-align: inherit;">
-// 計算2、4、6和8排星星的偏移量</span><span style="vertical-align: inherit;">
-int offset_x = (row % 2 == 0) ? </span><span style="vertical-align: inherit;">star_spacing_x / -2 : 0; </span><span style="vertical-align: inherit;">
-for (int star = 0; star &lt; starPerRow; star++) { </span><span style="vertical-align: inherit;">
-int x = star_start_x + star * star_spacing_x + offset_x; </span><span style="vertical-align: inherit;">
-// 旋轉角度（以弧度為單位）</span><span style="vertical-align: inherit;">
-doublerotation_angle = M_PI / 5; </span><span style="vertical-align: inherit;">// 忘記旋轉的度數</span><span style="vertical-align: inherit;">
-int y = star_start_y + row * star_spacing_y; </span><span style="vertical-align: inherit;">
-draw_star(img, x, y, star_size, 白色, 旋轉角度); </span><span style="vertical-align: inherit;">
-void </span><span style="vertical-align: inherit;">
-draw_star (gdImagePtr img, int x, </span><span style="vertical-align: inherit;">
-int </span><span style="vertical-align: inherit;">
-y, int size, int color, doublerotation_angle) { </span><span style="vertical-align: inherit;">
-gdPoint 點[10]; </span><span style="vertical-align: inherit;">
-for (int i = 0; i &lt; 10; i++) {</span><span style="vertical-align: inherit;">
-雙倍角度 = M_PI / 2 + i * 2 * M_PI / 10 + 旋轉角度; </span><span style="vertical-align: inherit;">
-int 半徑 = (i % 2 == 0) ? </span><span style="vertical-align: inherit;">尺寸：尺寸/2；</span></span>
-<span style="vertical-align: inherit;"></span>
-<span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span>
-<span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span>
-<span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span>
-<span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span>
-<span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span>
-<span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span>
-<span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span>
-<span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-點[i].x = x + 半徑 * cos(角); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-點[i].y = y + 半徑 * sin(角); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-} </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-// 使用指定的顏色填滿星星</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-gdImageFilledPolygon(img,points,10,color); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-}</span></span></pre>
-<p></p>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">結果如下</span></span></p>
-<p><img alt="" height="269" src="./../images/usa_flag.png" width="511"/></p>
-<br />ROC << <a href='ROC.html'>Previous</a> <a href='Japan.html'>Next</a> >> Japan</div>
+    <div id="tipue_search_content">ex8 << <a href='ex8.html'>Previous</a> <a href='ex10.html'>Next</a> >> ex10<br /><h1>ex9</h1>
+<h4><span>這個程式使用邏輯 AND 運算符 '</span><code>&amp;&amp;'</code><span> 來進行邏輯運算</span></h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">include &lt;stdio.h&gt;
+void main()
+{
+printf("%d\n", 1 &amp;&amp; 3 );
+printf("%d\n", 0 &amp;&amp; 0 );
+printf("%d\n", 2 &amp;&amp; 2 );
+}</pre>
+<img alt="" height="165" src="./../images/螢幕擷取畫面 2024-01-12 194603.png" width="376"/>
+<br />ex8 << <a href='ex8.html'>Previous</a> <a href='ex10.html'>Next</a> >> ex10</div>
         
     <!-- footer -->
       <div class="container">
