@@ -144,89 +144,88 @@ img.add_border {
         </header>
     <div id="tipue_search_content">2 Answer << <a href='2 Answer.html'>Previous</a> <a href='ANSIC.html'>Next</a> >> ANSIC<br /><h1>失敗的</h1>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">程式嘗試嘗試後輸出錯誤的圖形</span></span></p>
-<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">#include &lt;stdio.h&gt; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-#include &lt;gd.h&gt; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-#include &lt;math.h&gt; </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-void draw_roc_flag(gdImagePtr img); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-void findIntersectPoints(int center_x, int center_y, int radius, int i, gdPoint *points); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-int main() { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    int 寬度 = 1200; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    int 高度 = (int)(寬度 * 2.0 / 3.0); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    gdImagePtr img = gdImageCreateTrueColor(寬度, 高度); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    gdImageAlphaBlending(img, 0); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    繪製_roc_flag（img）；</span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    FILE *outputFile = fopen("roc_flag_in_gd.png", "wb"); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    if (outputFile == NULL) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        fprintf(stderr, "開啟輸出檔時發生錯誤。\n"); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        返回1；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    gdImagePngEx </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    (img, 輸出檔, 9); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    fclose(輸出檔); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    gdImageDestroy(img); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    返回0；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-} </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-void draw_roc_flag(gdImagePtr img) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    int width = gdImageSX(img); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    int 高度 = gdImageSY(img); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    int 紅、白、藍；</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    int center_x = (int)(寬度/4); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    int center_y = (int)(高度 / 4); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    紅色 = gdImageColorAllocate(img, 255, 0, 0); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    白色 = gdImageColorAllocate(img, 255, 255, 255); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    藍色 = gdImageColorAllocate(img, 0, 0, 149); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    gdImageFilledRectangle(img, 0, 0, 寬度, 高度, 紅色); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    gdImageFilledRectangle(img, 0, 0, (int)(寬度 / 2.0), (int)(高度 / 2.0), 藍色); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    int sun_radius = (int)(寬度/8); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    draw_white_sun(img, center_x, center_y, sun_radius, 白色); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-} </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    float deg = M_PI / 180; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    float sr = sun_radius / tan(75 * deg); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    gdPoint點[4]；</span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    for (int i = 1; i &lt;= 6; i++) { </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        findIntersectPoints(center_x, center_y, sun_radius, i, 點); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        gdImageLine(img, 點[0].x, 點[0].y, 點[1].x, 點[1].y, 顏色); </span></span>
-        <span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        findIntersectPoints(center_x, center_y, sr, i, 點); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        gdImageLine(img, 點[1].x, 點[1].y, 點[2].x, 點[2].y, 顏色); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        findIntersectPoints(center_x, center_y, sun_radius, i + 1, 點); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        gdImageLine(img, 點[2].x, 點[2].y, 點[3].x, 點[3].y, 顏色); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        findIntersectPoints(center_x, center_y, sr, i + 1, 點); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-        gdImageLine(img, 點[3].x, 點[3].y, 點[0].x, 點[0].y, 顏色); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    } </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-} </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-void findIntersectPoints(int center_x, int center_y, int radius, int i, gdPoint *points) {</span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    浮點數 = M_PI / 180; </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    浮動角度 = 30 * i * deg；</span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    點[0].x = center_x + 半徑 * sin(角度); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    點[0].y = center_y - 半徑 + 半徑 * cos(角度); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    點[1].x = center_x + 半徑 * sin(角度 + 30 * deg); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    點[1].y = center_y - 半徑 + 半徑 * cos(角度 + 30 * 度); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    點[2].x = center_x + 半徑 * sin(角度 + 60 * deg); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    點[2].y = center_y - 半徑 + 半徑 * cos(角度 + 60 * 度); </span></span>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    點[3].x = center_x + 半徑 * sin(角度 + 90 * deg); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-    點[3].y = center_y - 半徑 + 半徑 * cos(角度 + 90 * 度); </span></span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
-}</span></span>
-</pre>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#include &lt;gd.h&gt;
+#include &lt;math.h&gt;
+
+void draw_roc_flag(gdImagePtr img);
+void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color);
+void findIntersectPoints(int center_x, int center_y, int radius, int i, gdPoint *points);
+
+int main() {
+    int width = 1200;
+    int height = (int)(width * 2.0 / 3.0);
+
+    gdImagePtr img = gdImageCreateTrueColor(width, height);
+    gdImageAlphaBlending(img, 0);
+
+    draw_roc_flag(img);
+
+    FILE *outputFile = fopen("roc_flag_in_gd.png", "wb");
+    if (outputFile == NULL) {
+        fprintf(stderr, "Error opening the output file.\n");
+        return 1;
+    }
+    gdImagePngEx(img, outputFile, 9);
+    fclose(outputFile);
+    gdImageDestroy(img);
+    return 0;
+}
+
+void draw_roc_flag(gdImagePtr img) {
+    int width = gdImageSX(img);
+    int height = gdImageSY(img);
+    int red, white, blue;
+    int center_x = (int)(width / 4);
+    int center_y = (int)(height / 4);
+
+    red = gdImageColorAllocate(img, 255, 0, 0);
+    white = gdImageColorAllocate(img, 255, 255, 255);
+    blue = gdImageColorAllocate(img, 0, 0, 149);
+
+    gdImageFilledRectangle(img, 0, 0, width, height, red);
+    gdImageFilledRectangle(img, 0, 0, (int)(width / 2.0), (int)(height / 2.0), blue);
+
+    int sun_radius = (int)(width / 8);
+    draw_white_sun(img, center_x, center_y, sun_radius, white);
+}
+
+void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
+    float deg = M_PI / 180;
+    float sr = sun_radius / tan(75 * deg);
+    gdPoint points[4];
+
+    for (int i = 1; i &lt;= 6; i++) {
+        findIntersectPoints(center_x, center_y, sun_radius, i, points);
+        gdImageLine(img, points[0].x, points[0].y, points[1].x, points[1].y, color);
+        
+        findIntersectPoints(center_x, center_y, sr, i, points);
+        gdImageLine(img, points[1].x, points[1].y, points[2].x, points[2].y, color);
+
+        findIntersectPoints(center_x, center_y, sun_radius, i + 1, points);
+        gdImageLine(img, points[2].x, points[2].y, points[3].x, points[3].y, color);
+
+        findIntersectPoints(center_x, center_y, sr, i + 1, points);
+        gdImageLine(img, points[3].x, points[3].y, points[0].x, points[0].y, color);
+    }
+}
+
+void findIntersectPoints(int center_x, int center_y, int radius, int i, gdPoint *points) {
+    float deg = M_PI / 180;
+    float angle = 30 * i * deg;
+
+    points[0].x = center_x + radius * sin(angle);
+    points[0].y = center_y - radius + radius * cos(angle);
+
+    points[1].x = center_x + radius * sin(angle + 30 * deg);
+    points[1].y = center_y - radius + radius * cos(angle + 30 * deg);
+
+    points[2].x = center_x + radius * sin(angle + 60 * deg);
+    points[2].y = center_y - radius + radius * cos(angle + 60 * deg);
+
+    points[3].x = center_x + radius * sin(angle + 90 * deg);
+    points[3].y = center_y - radius + radius * cos(angle + 90 * deg);
+}</pre>
 <p><img alt="" height="400" src="data:image/png;base64,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igwpfVsFACJ7pC+LAEBMdggBAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAEFoCQAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAgNoND2sAAAAQkh1CAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAEAQWgIAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAILQEgAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAACEIAAAAEIQAAAIIQAAAAQQgAAIAgBAAAQBACAAAgCAEAABCEAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAAAAghAAAABBCAAAgCAEAABAEAIAACAIAQAAEIQAAAAIQgAAAAQhAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAACCEAAAAEEIAACAIAQAAEAQAgAAIAgBAAAQhAAAAAhCAAAABCEAAAB//gNnu5pMq2s+EgAAAABJRU5ErkJggg==" width="599"/></p>
 <br />2 Answer << <a href='2 Answer.html'>Previous</a> <a href='ANSIC.html'>Next</a> >> ANSIC</div>
         

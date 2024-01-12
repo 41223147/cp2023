@@ -3,9 +3,8 @@
 #include <math.h>
 
 void draw_roc_flag(gdImagePtr img);
-
-// 函數原型
-int lineCircleIntersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr, int *x, int *y);
+void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color);
+void findIntersectPoints(int center_x, int center_y, int radius, int i, gdPoint *points);
 
 int main() {
     int width = 1200;
@@ -16,7 +15,7 @@ int main() {
 
     draw_roc_flag(img);
 
-    FILE *outputFile = fopen("roc_flag2.png", "wb");
+    FILE *outputFile = fopen("roc_flag_in_gd.png", "wb");
     if (outputFile == NULL) {
         fprintf(stderr, "Error opening the output file.\n");
         return 1;
@@ -41,68 +40,43 @@ void draw_roc_flag(gdImagePtr img) {
     gdImageFilledRectangle(img, 0, 0, width, height, red);
     gdImageFilledRectangle(img, 0, 0, (int)(width / 2.0), (int)(height / 2.0), blue);
 
-    int A_x = 429;
-    int A_y = 125;
-    int B_x = 279;
-    int B_y = 165;
-    int E_x = 170;
-    int E_y = 274;
-    int D_x = 319;
-    int D_y = 234;
-
-    // Draw lines
-    gdImageLine(img, A_x, A_y, B_x, B_y, white);
-    gdImageLine(img, B_x, B_y, E_x, E_y, white);
-    gdImageLine(img, E_x, E_y, D_x, D_y, white);
-    gdImageLine(img, D_x, D_y, A_x, A_y, white);
-
-    // Coordinates of the sun's circle
-    int sun_center_x = (int)(width / 4);
-    int sun_center_y = (int)(height / 4);
     int sun_radius = (int)(width / 8);
-
-    // Draw sun's circle with reduced radius
-    int new_sun_radius = sun_radius / 2;
-    gdImageFilledEllipse(img, sun_center_x, sun_center_y, new_sun_radius * 2, new_sun_radius * 2, white);
-
-    int intersection1_x, intersection1_y;
-    int intersection2_x, intersection2_y;
-    int intersection3_x, intersection3_y;
-    int intersection4_x, intersection4_y;
-
-    // Calculate intersections
-    lineCircleIntersection(A_x, A_y, B_x, B_y, sun_center_x, sun_center_y, new_sun_radius, &intersection1_x, &intersection1_y);
-    lineCircleIntersection(B_x, B_y, E_x, E_y, sun_center_x, sun_center_y, new_sun_radius, &intersection2_x, &intersection2_y);
-    lineCircleIntersection(E_x, E_y, D_x, D_y, sun_center_x, sun_center_y, new_sun_radius, &intersection3_x, &intersection3_y);
-    lineCircleIntersection(D_x, D_y, A_x, A_y, sun_center_x, sun_center_y, new_sun_radius, &intersection4_x, &intersection4_y);
-
-    printf("Intersection 1: (%d, %d)\n", intersection1_x, intersection1_y);
-    printf("Intersection 2: (%d, %d)\n", intersection2_x, intersection2_y);
-    printf("Intersection 3: (%d, %d)\n", intersection3_x, intersection3_y);
-    printf("Intersection 4: (%d, %d)\n", intersection4_x, intersection4_y);
+    draw_white_sun(img, center_x, center_y, sun_radius, white);
 }
 
-// 計算直線與圓相交的座標
-int lineCircleIntersection(int x1, int y1, int x2, int y2, int cx, int cy, int cr, int *x, int *y) {
-    float dx, dy, A, B, C, det, t;
+void draw_white_sun(gdImagePtr img, int center_x, int center_y, int sun_radius, int color) {
+    float deg = M_PI / 180;
+    float sr = sun_radius / tan(75 * deg);
+    gdPoint points[4];
 
-    dx = x2 - x1;
-    dy = y2 - y1;
+    for (int i = 1; i <= 6; i++) {
+        findIntersectPoints(center_x, center_y, sun_radius, i, points);
+        gdImageLine(img, points[0].x, points[0].y, points[1].x, points[1].y, color);
 
-    A = dx * dx + dy * dy;
-    B = 2 * (dx * (x1 - cx) + dy * (y1 - cy));
-    C = (x1 - cx) * (x1 - cx) + (y1 - cy) * (y1 - cy) - cr * cr;
+        findIntersectPoints(center_x, center_y, sr, i, points);
+        gdImageLine(img, points[1].x, points[1].y, points[2].x, points[2].y, color);
 
-    det = B * B - 4 * A * C;
+        findIntersectPoints(center_x, center_y, sun_radius, i + 1, points);
+        gdImageLine(img, points[2].x, points[2].y, points[3].x, points[3].y, color);
 
-    if ((A <= 0.00001) || (det < 0)) {
-        // No real solutions
-        return 0;
+        findIntersectPoints(center_x, center_y, sr, i + 1, points);
+        gdImageLine(img, points[3].x, points[3].y, points[0].x, points[0].y, color);
     }
+}
 
-    t = (-B - sqrt(det)) / (2 * A);
-    *x = x1 + t * dx;
-    *y = y1 + t * dy;
+void findIntersectPoints(int center_x, int center_y, int radius, int i, gdPoint *points) {
+    float deg = M_PI / 180;
+    float angle = 30 * i * deg;
 
-    return 1;
+    points[0].x = center_x + radius * sin(angle);
+    points[0].y = center_y - radius + radius * cos(angle);
+
+    points[1].x = center_x + radius * sin(angle + 30 * deg);
+    points[1].y = center_y - radius + radius * cos(angle + 30 * deg);
+
+    points[2].x = center_x + radius * sin(angle + 60 * deg);
+    points[2].y = center_y - radius + radius * cos(angle + 60 * deg);
+
+    points[3].x = center_x + radius * sin(angle + 90 * deg);
+    points[3].y = center_y - radius + radius * cos(angle + 90 * deg);
 }
