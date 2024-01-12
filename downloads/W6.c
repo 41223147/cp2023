@@ -1,14 +1,16 @@
-int main()  
-{
-    // Print Name
-    printf("Name   :TSAI-FU，JING\n"); 
+#include <stdio.h>
+int main() {
+    // Define an enumeration type 'week'
+    enum week {Sun, Mon, Tue, Wed, Thu, Fri, Sat};
 
-    // Print Date of Birth
-    printf("DOB    : July 14, 2004\n"); 
+    // Print the values of the days using the enumeration constants
+    printf("Sun = %d", Sun);
+    printf("\nMon = %d", Mon);
+    printf("\nTue = %d", Tue);
+    printf("\nWed = %d", Wed);
+    printf("\nThu = %d", Thu);
+    printf("\nFri = %d", Fri);
+    printf("\nSat = %d", Sat);
 
-    // Print Mobile Number
-    printf("Mobile : 0922-444-666\n"); 
-
-    // Indicate successful execution
-    return(0); 
+    return 0;
 }

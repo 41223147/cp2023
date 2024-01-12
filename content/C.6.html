@@ -142,15 +142,90 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w7 << <a href='w7.html'>Previous</a> <a href='w12.html'>Next</a> >> w12<br /><h1>w10</h1>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">線上簡報、網誌與多媒體影片製作工具：</span></span></p>
-<p><a href="https://leo-editor.github.io/leo-editor/"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Leo Editor</span></span></a><span> </span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">（</span></span><a href="https://groups.google.com/g/leo-editor"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">討論群組</span></span></a><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">）為大綱管理系統，可使用程式開發的IDE（整合開發環境）使用，可用於編輯reveal.js 簡報檔案中的html 與 markdown，也可用於編輯 Pelican 網誌 markdown 與轉文件，以及在電腦輔助設計分析過程中，可以用來讀取CoppeliaSim XML 格式檔案。</span></span></p>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">由於 Python 3.12.0 環境下 Leo Editor 還無法正常查看 pip 安裝，因此必須手動安裝 PyQt5 之後，重新使用 pip install leo，所完成的 Python 3.12.0: Python312_leo_664_PyQt5.7z  </span></span><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EYf6RiAqXAFJllAizi_-iZ4BT9ZEn8-bT2V8TVjd9p446Q?e=NSCciC"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">(</span></span></a><span> </span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">需要下載密碼)</span></span></p>
-<p><a href="https://www.debugmode.com/wink.html"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Wink</span></span></a><span> </span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">為操作流程影片製作套件，可在電腦操作過程中，儲存關鍵頁面與鼠標點選區域後，加上輔助文字說明後製作成mp4影片檔。</span></span></p>
-<p><a href="https://github.com/ShareX/ShareX/releases"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">ShareX</span></span></a><span> </span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">為螢幕畫面抓取像或錄影套件，可以抓取電腦畫面任一區域存為影像文件，或結合語音說明與鼠標操作錄製說明影片。</span></span></p>
-<p><a href="https://github.com/obsproject/obs-studio/releases"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">OBS</span></span></a><span> </span><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">為電腦廣播製作系統，可結合各種語音、影像與影片製作出多元的電腦操作說明影片。</span></span></p>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Wink 和 ShareX 都需要</span><a href="https://ffmpeg.org/download.html#build-windows"><span style="vertical-align: inherit;">ffmpeq.exe</span></a><span style="vertical-align: inherit;">。</span></span><span> </span><a href="https://ffmpeg.org/download.html#build-windows"><span style="vertical-align: inherit;"></span></a><span style="vertical-align: inherit;"></span></p>
-<br />w7 << <a href='w7.html'>Previous</a> <a href='w12.html'>Next</a> >> w12</div>
+    <div id="tipue_search_content">C.5 << <a href='C.5.html'>Previous</a> <a href='C.7.html'>Next</a> >> C.7<br /><h1>C.6</h1>
+<h4>從隨機數組和排序數組構造最大堆</h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;          // 包含 printf 函數的標準輸入/輸出庫
+#include &lt;stdlib.h&gt;         // 包含動態記憶體分配的標準庫
+ 
+#define MAX_HEAP_SIZE 100   // 定義堆的最大大小
+ 
+// 交換堆中兩個元素的函數
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+ 
+// 插入元素後維護最大堆屬性的函數
+void heapifyDown(int arr[], int size, int index) {
+    int leftChild = 2 * index + 1;   // 計算左子索引
+    int rightChild = 2 * index + 2;  // 計算右子索引
+    int largest = index;              // 假設當前節點是最大的
+ 
+    // 求當前節點、左子節點、右子節點中最大的元素
+    if (leftChild &lt; size &amp;&amp; arr[leftChild] &gt; arr[largest]) {
+        largest = leftChild;
+    }
+ 
+    if (rightChild &lt; size &amp;&amp; arr[rightChild] &gt; arr[largest]) {
+        largest = rightChild;
+    }
+ 
+    // 如果最大的元素不是當前節點，則與最大的子節點交換並繼續向下堆
+    if (largest != index) {
+        swap(&amp;arr[index], &amp;arr[largest]);
+        heapifyDown(arr, size, largest);
+    }
+}
+ 
+// 從數組建立最大堆的函數
+void buildMaxHeap(int arr[], int size) {
+    // 從最後一個非葉節點開始，向下堆化到根
+    for (int i = size / 2 - 1; i &gt;= 0; i--) {
+        heapifyDown(arr, size, i);
+    }
+}
+ 
+// 顯示數組元素的函數
+void display(int arr[], int size) {
+    printf("Array elements: ");
+    for (int i = 0; i &lt; size; i++) {
+        printf("%d ", arr[i]);  // 列印數組中的每個元素
+    }
+    printf("\n");
+}
+ 
+int main() {
+    // 使用隨機數組進行測試
+    int randomArray[] = {6, 8, 12, 7, 1};               // 聲明一個隨機數組
+    int randomSize = sizeof(randomArray) / sizeof(randomArray[0]);  // 計算數組的大小
+ 
+    printf("Original Random Array:\n");
+    display(randomArray, randomSize);  // 顯示原始隨機數組
+ 
+    // 從隨機數組建立最大堆
+    buildMaxHeap(randomArray, randomSize);
+ 
+    printf("Max Heap from Random Array:\n");
+    display(randomArray, randomSize);  // 顯示隨機數組中的最大堆
+ 
+    // 使用排序數組進行測試
+    int sortedArray[] = {19, 12, 8, 6, 2};              // 聲明一個排序數組
+    int sortedSize = sizeof(sortedArray) / sizeof(sortedArray[0]);  // 計算數組的大小
+ 
+    printf("\nOriginal Sorted Array:\n");
+    display(sortedArray, sortedSize);  // 顯示原始排序數組
+ 
+    // 從排序數組建立最大堆
+    buildMaxHeap(sortedArray, sortedSize);
+ 
+    printf("Max Heap from Sorted Array:\n");
+    display(sortedArray, sortedSize);  // 顯示排序數組中的最大堆
+ 
+    return 0;                         // 返回0表示執行成功
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="229" src="./../images/螢幕擷取畫面 2024-01-12 152251.png" width="331"/></span></span>
+<br />C.5 << <a href='C.5.html'>Previous</a> <a href='C.7.html'>Next</a> >> C.7</div>
         
     <!-- footer -->
       <div class="container">
