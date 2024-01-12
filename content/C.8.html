@@ -142,20 +142,28 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w2 << <a href='w2.html'>Previous</a> <a href='w4.html'>Next</a> >> w4<br /><h1>w3</h1>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">利用已經有 Brython 執行環境的網關，在設定中取得 Github 課堂第一次作業時，立即進入各個模板，因此只需取得：</span></span></p>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">利用學校帳號，建立Github帳號，以英文姓名加上一組數字，選擇最短的帳號名稱例如：jfk40723199，jfk方便自選的姓名縮寫，而附加則加上各自的學號。</span></span></p>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">擁有Github帳號後，即可透過Github Classroom作業連結取得作業以太坊，手機在以太坊設定Github Pages後，即可啟用作業網站（以下稱網站皆指靜態網站，而用於編輯網站內容的</span><span><span style="vertical-align: inherit;">動態</span></span><span><span><span style="vertical-align: inherit;">網站</span></span></span><span style="vertical-align: inherit;">，</span><span><span style="vertical-align: inherit;">則係統稱為互聯網內容編輯器</span></span><span style="vertical-align: inherit;">，使用動態網站的目的是編輯靜態網站的內容）。</span><span style="vertical-align: inherit;">網站內容經過編輯後，必須建立新的網站內容（使用generate_pages），然後將新的網站內容更新到對應的Github 錢包中（稱為改版，其過程經歷 git add、git commit 和 git push 等階段）。</span></span><span> </span><span><span style="vertical-align: inherit;"></span><span><span style="vertical-align: inherit;"></span></span><span> </span></span><span style="vertical-align: inherit;"></span><span><span style="vertical-align: inherit;"></span></span><span style="vertical-align: inherit;"></span></p>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">git 為分散式版本次管理系統工具。</span></span></p>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">git新增</span></span></p>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">git 提交</span></span></p>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">git 推送</span></span></p>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">利用Github教室建立作業以太坊的問題：</span></span></p>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">2023/09/26 在 1a w3 課程進行到建立各練習地點作業時發現，將 Replit 導入 Github 錢包的流程中，所產生的系統間權限設置，必須由 Github 課堂管理帳號（以 cp2023 為例，附屬在mdecp2023 帳戶下），針對各使用者所提出的個別Replit 權限請求（以site-scrum-1 憑證為例，只能穿透Replit 提出控管mdecp2023/site-scrum-1 憑證的權限）逐一進行</span><span><span style="vertical-align: inherit;">設定</span></span><span style="vertical-align: inherit;">。</span></span><span> </span><span><span style="vertical-align: inherit;"></span></span><span style="vertical-align: inherit;"></span></p>
-<p><img alt="" height="400" src="https://mde.tw/cpnote/images/mdecp2023_replit_requests.png" width="516"/></p>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">（上圖顯示共有三個用戶針對mdecp2023 帳戶下的Github Classroom 憑證提出Replit 連線要求，其中只有最上面用戶的請求獲取mdecp2023/site-scrum-1 錢包的維護權限，其餘兩個則請求則尚待解決審核階段。意即若要讓各使用者整合Replit，</span><span><span style="vertical-align: inherit;">每一個Github Classroom作業，管理員都必須手動處理超過兩百則的請求</span></span><span style="vertical-align: inherit;">）</span></span><span> </span><span><span style="vertical-align: inherit;"></span></span><span style="vertical-align: inherit;"></span></p>
-<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">為消除管理者的手動設定負擔，決定 2023 cp 與 cad 等課程將放棄使用 Github Classroom。</span><span style="vertical-align: inherit;">原本由各學員本人針對課程創建用於評分的課程憑證與網站(cp 課程建立cp2023 證書, cad 課程則建立cad2023 證書), 直接附屬在學員的Github 帳號下, 後續的子模組設定與網關親切權限則統一由各學員自行負責</span></span></p>
-<br />w2 << <a href='w2.html'>Previous</a> <a href='w4.html'>Next</a> >> w4</div>
+    <div id="tipue_search_content">C.7 << <a href='C.7.html'>Previous</a> <a href='C.9.html'>Next</a> >> C.9<br /><h1>C.8</h1>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span>列印ASCII值在範圍65（'A'）到122（'z'）之間所對應的字符</span></span></span></h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#define N 10
+//70
+int main() {
+  char chr;
+  printf("\n");
+
+  // Loop through ASCII values from 65 ('A') to 122 ('z')
+  for (chr = 65; chr &lt;= 122; chr = chr + 1) {
+    // Exclude characters between 'Z' and 'a'
+    if (chr &gt; 90 &amp;&amp; chr &lt; 97)
+      continue;
+
+    printf("[%2d-%c] ", chr, chr);
+  }
+
+  return 0;
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="135" src="./../images/螢幕擷取畫面 2024-01-12 153942.png" width="528"/></span></span>
+<br />C.7 << <a href='C.7.html'>Previous</a> <a href='C.9.html'>Next</a> >> C.9</div>
         
     <!-- footer -->
       <div class="container">

@@ -1,16 +1,16 @@
 #include <stdio.h>
-int main() {
-    // Define an enumeration type 'week'
-    enum week {Sun, Mon, Tue, Wed, Thu, Fri, Sat};
 
-    // Print the values of the days using the enumeration constants
-    printf("Sun = %d", Sun);
-    printf("\nMon = %d", Mon);
-    printf("\nTue = %d", Tue);
-    printf("\nWed = %d", Wed);
-    printf("\nThu = %d", Thu);
-    printf("\nFri = %d", Fri);
-    printf("\nSat = %d", Sat);
+int main() 
+{
+    // Declare and initialize character variables
+    char char1 = 'A';
+    char char2 = 'T';
+    char char3 = 'C';
 
-    return 0;
+    // Print the original and reversed characters
+    printf("The reverse of %c%c%c is %c%c%c\n",
+        char1, char2, char3,
+        char3, char2, char1);
+
+    return(0);
 }

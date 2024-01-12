@@ -1825,8 +1825,109 @@ int main() {
  
    return(0);
 }</pre>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="95" src="/images/螢幕擷取畫面 2024-01-12 143307.png" width="424"/></span></span>
-<p></p>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="95" src="/images/螢幕擷取畫面 2024-01-12 143307.png" width="424"/></span></span></p>
+<h2>C.6</h2>
+<h4>從隨機數組和排序數組構造最大堆</h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;          // 包含 printf 函數的標準輸入/輸出庫
+#include &lt;stdlib.h&gt;         // 包含動態記憶體分配的標準庫
+ 
+#define MAX_HEAP_SIZE 100   // 定義堆的最大大小
+ 
+// 交換堆中兩個元素的函數
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+ 
+// 插入元素後維護最大堆屬性的函數
+void heapifyDown(int arr[], int size, int index) {
+    int leftChild = 2 * index + 1;   // 計算左子索引
+    int rightChild = 2 * index + 2;  // 計算右子索引
+    int largest = index;              // 假設當前節點是最大的
+ 
+    // 求當前節點、左子節點、右子節點中最大的元素
+    if (leftChild &lt; size &amp;&amp; arr[leftChild] &gt; arr[largest]) {
+        largest = leftChild;
+    }
+ 
+    if (rightChild &lt; size &amp;&amp; arr[rightChild] &gt; arr[largest]) {
+        largest = rightChild;
+    }
+ 
+    // 如果最大的元素不是當前節點，則與最大的子節點交換並繼續向下堆
+    if (largest != index) {
+        swap(&amp;arr[index], &amp;arr[largest]);
+        heapifyDown(arr, size, largest);
+    }
+}
+ 
+// 從數組建立最大堆的函數
+void buildMaxHeap(int arr[], int size) {
+    // 從最後一個非葉節點開始，向下堆化到根
+    for (int i = size / 2 - 1; i &gt;= 0; i--) {
+        heapifyDown(arr, size, i);
+    }
+}
+ 
+// 顯示數組元素的函數
+void display(int arr[], int size) {
+    printf("Array elements: ");
+    for (int i = 0; i &lt; size; i++) {
+        printf("%d ", arr[i]);  // 列印數組中的每個元素
+    }
+    printf("\n");
+}
+ 
+int main() {
+    // 使用隨機數組進行測試
+    int randomArray[] = {6, 8, 12, 7, 1};               // 聲明一個隨機數組
+    int randomSize = sizeof(randomArray) / sizeof(randomArray[0]);  // 計算數組的大小
+ 
+    printf("Original Random Array:\n");
+    display(randomArray, randomSize);  // 顯示原始隨機數組
+ 
+    // 從隨機數組建立最大堆
+    buildMaxHeap(randomArray, randomSize);
+ 
+    printf("Max Heap from Random Array:\n");
+    display(randomArray, randomSize);  // 顯示隨機數組中的最大堆
+ 
+    // 使用排序數組進行測試
+    int sortedArray[] = {19, 12, 8, 6, 2};              // 聲明一個排序數組
+    int sortedSize = sizeof(sortedArray) / sizeof(sortedArray[0]);  // 計算數組的大小
+ 
+    printf("\nOriginal Sorted Array:\n");
+    display(sortedArray, sortedSize);  // 顯示原始排序數組
+ 
+    // 從排序數組建立最大堆
+    buildMaxHeap(sortedArray, sortedSize);
+ 
+    printf("Max Heap from Sorted Array:\n");
+    display(sortedArray, sortedSize);  // 顯示排序數組中的最大堆
+ 
+    return 0;                         // 返回0表示執行成功
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="229" src="/images/螢幕擷取畫面 2024-01-12 152251.png" width="331"/></span></span>
+<h2><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">C.7</span></span></h2>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">列舉周日到周六(一星期)所對應的數值</span></span></h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+int main() {
+    // Define an enumeration type 'week'
+    enum week {Sun, Mon, Tue, Wed, Thu, Fri, Sat};
+ 
+    // Print the values of the days using the enumeration constants
+    printf("Sun = %d", Sun);
+    printf("\nMon = %d", Mon);
+    printf("\nTue = %d", Tue);
+    printf("\nWed = %d", Wed);
+    printf("\nThu = %d", Thu);
+    printf("\nFri = %d", Fri);
+    printf("\nSat = %d", Sat);
+ 
+    return 0;
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="186" src="/images/螢幕擷取畫面 2024-01-12 152803.png" width="321"/></span></span>
 <h1><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">SSH</span></span></h1>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">下載膩子</span></span></p>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">在putty資料夾內開啟puttygen.exe做一把金鑰匙</span></span></p>

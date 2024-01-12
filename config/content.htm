@@ -1908,7 +1908,7 @@ int main() {
  
     return 0;                         // 返回0表示執行成功
 }</pre>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="229" src="/images/螢幕擷取畫面 2024-01-12 152251.png" width="331"/></span></span>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="229" src="/images/螢幕擷取畫面 2024-01-12 152251.png" width="331"/></span></span></p>
 <h2><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">C.7</span></span></h2>
 <h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">列舉周日到周六(一星期)所對應的數值</span></span></h4>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -1927,7 +1927,67 @@ int main() {
  
     return 0;
 }</pre>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="186" src="/images/螢幕擷取畫面 2024-01-12 152803.png" width="321"/></span></span>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="186" src="/images/螢幕擷取畫面 2024-01-12 152803.png" width="321"/></span></span></p>
+<h2><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">C.8</span></span></h2>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span>列印ASCII值在範圍65（'A'）到122（'z'）之間所對應的字符</span></span></span></h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+#define N 10
+//70
+int main() {
+  char chr;
+  printf("\n");
+
+  // Loop through ASCII values from 65 ('A') to 122 ('z')
+  for (chr = 65; chr &lt;= 122; chr = chr + 1) {
+    // Exclude characters between 'Z' and 'a'
+    if (chr &gt; 90 &amp;&amp; chr &lt; 97)
+      continue;
+
+    printf("[%2d-%c] ", chr, chr);
+  }
+
+  return 0;
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="135" src="/images/螢幕擷取畫面 2024-01-12 153942.png" width="528"/></span></span>
+<h2><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">C.9</span></span></h2>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span>檢查使用的 C 語言標準版本</span></span></span></h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main(int argc, char** argv) {
+    // Check for C standard version
+    #if __STDC_VERSION__ &gt;=  201710L
+        printf("We are using C22!\n");
+    #elif __STDC_VERSION__ &gt;= 201112L
+        printf("We are using C11!\n");
+    #elif __STDC_VERSION__ &gt;= 199901L
+        printf("We are using C99!\n");
+    #else
+        printf("We are using C89/C90!\n");
+    #endif
+
+    // Indicate successful execution
+    return 0;
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="76" src="/images/螢幕擷取畫面 2024-01-12 154535.png" width="379"/></span></span>
+<h2><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">C.10</span></span></h2>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span>此程式宣告並初始化了三個字符變數'</span><code>char1'</code><span>、'</span><code>char2'</code><span> 和 '</span><code>char3'</code><span>，然後印出這三個字符原來的順序和反轉後的順序。</span></span></span></h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main() 
+{
+    // Declare and initialize character variables
+    char char1 = 'A';
+    char char2 = 'T';
+    char char3 = 'C';
+
+    // Print the original and reversed characters
+    printf("The reverse of %c%c%c is %c%c%c\n",
+        char1, char2, char3,
+        char3, char2, char1);
+
+    return(0);
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="81" src="/images/螢幕擷取畫面 2024-01-12 155434.png" width="401"/></span></span>
 <h1><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">SSH</span></span></h1>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">下載膩子</span></span></p>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">在putty資料夾內開啟puttygen.exe做一把金鑰匙</span></span></p>
