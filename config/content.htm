@@ -2003,7 +2003,7 @@ printf( "%d \n", a - b );
 printf( "%d \n", a % b );
 return 0;
 }</pre>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="167" src="/images/螢幕擷取畫面 2024-01-12 183937.png" width="346"/></span></span>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="167" src="/images/螢幕擷取畫面 2024-01-12 183937.png" width="346"/></span></span></p>
 <h2>ex2</h2>
 <h4>計算半徑為5的圓周長</h4>
 <pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
@@ -2023,7 +2023,7 @@ float result;
 result = 3.14159 * (double)2 * r;
 return ( result );
 }</pre>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="64" src="/images/螢幕擷取畫面 2024-01-12 184704.png" width="473"/></span></span>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="64" src="/images/螢幕擷取畫面 2024-01-12 184704.png" width="473"/></span></span></p>
 <h2>ex3</h2>
 <h4><span>這段程式碼使用了不同的關係運算符號（==、&gt;、&lt;、&gt;=、&lt;=、!=）來比較兩個整數變數 a 和 b 的值</span></h4>
 <h4><span>（1代表True，0代表False）</span></h4>
@@ -2047,7 +2047,53 @@ printf( " a &lt;= b is %d \n", a &lt;= b );
 printf( " a != b is %d \n", a != b );
 return 0;
 }</pre>
-<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="305" src="/images/螢幕擷取畫面 2024-01-12 185517.png" width="336"/></span></span>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="305" src="/images/螢幕擷取畫面 2024-01-12 185517.png" width="336"/></span></span></p>
+<h2><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">ex4</span></span></h2>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span>這段程式執行可印出 "Hello World! Bye Bye</span></span></span></h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+int main()
+{
+/* 印出 Hello World! Bye Bye */
+printf("Hello World! ");
+printf("Bye ");
+printf("Bye");
+return 0;
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="70" src="/images/螢幕擷取畫面 2024-01-12 190508.png" width="435"/></span></span>
+<h2>ex5</h2>
+<h4><span>這段程式執行後可對字符型變數進行賦值和輸出</span></h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+int main()
+{
+char x, y;
+x = 'a';
+y = (char)97;
+/* 輸出 x, y, x, 最後一個是以 ASCII 值顯示 y */
+printf( " x = %c, y = %c, ASCII of y = %d", x, y, y );
+return 0;
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="59" src="/images/螢幕擷取畫面 2024-01-12 191153.png" width="486"/></span></span>
+<h2><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">ex6</span></span></h2>
+<h4><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><span>這個程式會檢查所使用的C語言標準版本，然後印出相應的訊息</span></span></span></h4>
+<p></p>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+
+int main(int argc, char** argv) {
+    // Check for C standard version
+    #if __STDC_VERSION__ &gt;=  201710L
+        printf("We are using C28!\n");
+    #elif __STDC_VERSION__ &gt;= 201112L
+        printf("We are using C15!\n");
+    #elif __STDC_VERSION__ &gt;= 199901L
+        printf("We are using C99!\n");
+    #else
+        printf("We are using C89/C90!\n");
+    #endif
+
+    // Indicate successful execution
+    return 0;
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="82" src="/images/螢幕擷取畫面 2024-01-12 191813.png" width="395"/></span></span>
 <h1><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">SSH</span></span></h1>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">下載膩子</span></span></p>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">在putty資料夾內開啟puttygen.exe做一把金鑰匙</span></span></p>

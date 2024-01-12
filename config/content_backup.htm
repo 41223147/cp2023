@@ -1989,6 +1989,65 @@ int main()
 }</pre>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="81" src="/images/螢幕擷取畫面 2024-01-12 155434.png" width="401"/></span></span></p>
 <h1>c_ex</h1>
+<h2>ex1</h2>
+<h4>此程式執行可獲得a、b兩數相加、相減相加、相減、相乘相除的答案</h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include&lt;stdio.h&gt;
+int main()
+{
+int a,b;
+a = 15; b = 6;
+printf( "%d \n", a * b );
+printf( "%d \n", a / b );
+printf( "%d \n", a + b );
+printf( "%d \n", a - b );
+printf( "%d \n", a % b );
+return 0;
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="167" src="/images/螢幕擷取畫面 2024-01-12 183937.png" width="346"/></span></span>
+<h2>ex2</h2>
+<h4>計算半徑為5的圓周長</h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+float circle( int r ); /* 宣告 circle 的 prototype */
+void main()
+{
+float answer;
+answer = circle(5);
+printf( " 圓周長度是 %f", answer );
+}
+/* ====================
+ circle 函數, 計算 circle 的圓周長
+==================== */
+float circle( int r )
+{
+float result;
+result = 3.14159 * (double)2 * r;
+return ( result );
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="64" src="/images/螢幕擷取畫面 2024-01-12 184704.png" width="473"/></span></span>
+<h2>ex3</h2>
+<h4><span>這段程式碼使用了不同的關係運算符號（==、&gt;、&lt;、&gt;=、&lt;=、!=）來比較兩個整數變數 a 和 b 的值</span></h4>
+<h4><span>（1代表True，0代表False）</span></h4>
+<pre class="brush:csharp;auto-links:false;toolbar:false" contenteditable="false">#include &lt;stdio.h&gt;
+int main()
+{
+int a = 18, b = 6;
+printf( " a == b is %d \n", a == b );
+printf( " a &gt; b is %d \n", a &gt; b );
+printf( " a &lt; b is %d \n", a &lt; b );
+printf( " a &gt;= b is %d \n", a &gt;= b );
+printf( " a &lt;= b is %d \n", a &lt;= b );
+printf( " a != b is %d \n", a != b );
+printf( "\n" );
+b = 6;
+printf( " a == b is %d \n", a == b );
+printf( " a &gt; b is %d \n", a &gt; b );
+printf( " a &lt; b is %d \n", a &lt; b );
+printf( " a &gt;= b is %d \n", a &gt;= b );
+printf( " a &lt;= b is %d \n", a &lt;= b );
+printf( " a != b is %d \n", a != b );
+return 0;
+}</pre>
+<span style="vertical-align: inherit;"><span style="vertical-align: inherit;"><img alt="" height="305" src="/images/螢幕擷取畫面 2024-01-12 185517.png" width="336"/></span></span>
 <h1><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">SSH</span></span></h1>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">下載膩子</span></span></p>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">在putty資料夾內開啟puttygen.exe做一把金鑰匙</span></span></p>
